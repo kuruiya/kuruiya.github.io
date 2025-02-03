@@ -270,7 +270,8 @@ function nextChapter() {
         currentChapter++;
         updateChapter();
     } else {
-        alert("คุณอยู่ที่บทสุดท้ายแล้ว");
+        alert("คุณกำลังไปสู่พาร์ทที่ 2 อลิซ");
+        window.location.href = "the_one_part2.html";
     }
 }
 
@@ -280,8 +281,7 @@ function previousChapter() {
         currentChapter--;
         updateChapter();
     } else {
-        alert("คุณกำลังจะไปพาร์ทที่ 2 อลิซ");
-        window.location.href = "the_one_part2.html";
+        alert("คุณอยู่บทแรกแล้ว");
     }
 }
 
