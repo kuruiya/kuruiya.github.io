@@ -17,7 +17,7 @@
         <!-- Chapter List -->
         <div class="chapter-list">
             <h2>สารบัญ</h2>
-            <p> จำนวนบท: 5 บท </p>
+            <p>จำนวนบท: <span id="total-chapters">0</span> บท</p>
             <ul id="chapters">
                 <!-- Chapters will be dynamically added here -->
             </ul>
@@ -38,7 +38,11 @@
     <!-- JavaScript -->
     <script>
         // Chapter Data (Replace with your actual chapter titles and links)
-   
+        const chapters = [
+            { title: "พาร์ทที่ 1 : เรื่องราว", link: "the_one_part1.html" },
+            { title: "พาร์ทที่ 2 : อลิซ", link: "the_one_part2.html" }
+        ];
+
         // Function to generate the chapter list
         function generateChapterList() {
             const chapterList = document.getElementById('chapters');
@@ -46,6 +50,13 @@
 
             // Clear existing list
             chapterList.innerHTML = '';
+
+            // Check if there are any chapters
+            if (chapters.length === 0) {
+                chapterList.innerHTML = '<li>ไม่มีบทในตอนนี้</li>';
+                totalChapters.textContent = '0';
+                return;
+            }
 
             // Add each chapter to the list
             chapters.forEach((chapter, index) => {
@@ -63,9 +74,15 @@
 
         // Function to handle the "Begin Reading" button
         function begin() {
-            // Redirect to the first chapter
-            window.location.href = "the_one_part1.html";
+            if (chapters.length > 0) {
+                // Redirect to the first chapter
+                window.location.href = chapters[0].link;
+            } else {
+                alert("ไม่มีบทที่สามารถอ่านได้ในตอนนี้");
+            }
         }
+
+        // Function to handle the "Back to Home" button
         function back() {
             window.location.href = "index.html";
         }
