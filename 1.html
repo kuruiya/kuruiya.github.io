@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>อ่านนิยาย - สารบัญ</title>
+    <link rel="stylesheet" href="..\css\style1.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>The One</h1>
+            <p>The Path I Chosen</p>
+        </header>
+
+        <!-- Chapter List -->
+        <div class="chapter-list">
+            <h2>สารบัญ</h2>
+            <p> จำนวนบท: 5 บท </p>
+            <ul id="chapters">
+                <!-- Chapters will be dynamically added here -->
+            </ul>
+        </div>
+
+        <!-- Begin Reading Button -->
+        <div class="controls">
+            <button onclick="begin()">เริ่มต้นอ่าน</button>
+            <button onclick="back()">กลับไปที่หน้าหลัก</button>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>© yaimakmak</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Chapter Data (Replace with your actual chapter titles and links)
+   
+        // Function to generate the chapter list
+        function generateChapterList() {
+            const chapterList = document.getElementById('chapters');
+            const totalChapters = document.getElementById('total-chapters');
+
+            // Clear existing list
+            chapterList.innerHTML = '';
+
+            // Add each chapter to the list
+            chapters.forEach((chapter, index) => {
+                const listItem = document.createElement('li');
+                const chapterLink = document.createElement('a');
+                chapterLink.href = chapter.link;
+                chapterLink.textContent = chapter.title;
+                listItem.appendChild(chapterLink);
+                chapterList.appendChild(listItem);
+            });
+
+            // Update the chapter count
+            totalChapters.textContent = chapters.length;
+        }
+
+        // Function to handle the "Begin Reading" button
+        function begin() {
+            // Redirect to the first chapter
+            window.location.href = "page1.html";
+        }
+        function back() {
+            window.location.href = "index.html";
+        }
+
+        // Generate the chapter list when the page loads
+        window.onload = generateChapterList;
+    </script>
+</body>
+</html>
