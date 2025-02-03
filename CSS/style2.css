@@ -1,0 +1,167 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+    font-family: 'Noto Serif Thai', serif;
+    background-color: #77584b;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgb(63, 47, 36);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}
+
+header h1 {
+    font-size: 2.8rem;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+header p {
+    font-size: 1.3rem;
+    color: #cecece;
+    font-weight: 300;
+}
+
+/* Video Grid (Index Page) */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Video Card */
+.video-card {
+    background-color: #ffe8bc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s;
+    text-decoration: none; /* Removes underline */
+    color: inherit;
+}
+
+.video-card:hover {
+    transform: scale(1.05);
+}
+
+.video-thumbnail {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.video-info {
+    padding: 10px;
+}
+
+.video-title {
+    font-size: 1.2rem;
+    color: #2d2d2d;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.video-author {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Left-Aligned Video Player (Video Page) */
+.video-player {
+    text-align: left;  /* Aligns video to the left */
+    margin-bottom: 20px;
+}
+
+.video-player iframe {
+    width: 70%;  /* Adjust width as needed */
+    height: 400px; /* Adjust height as needed */
+    display: block; /* Ensures proper alignment */
+}
+
+/* Video Description */
+.video-description {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+/* Back Button */
+.back-button {
+    display: inline-block;
+    padding: 12px 20px;
+    font-size: 1rem;
+    background-color: #5cb85c;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #4cae4c;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #cecece;
+    margin-top: 30px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    header p {
+        font-size: 1.1rem;
+    }
+
+    .video-title {
+        font-size: 1rem;
+    }
+
+    .video-player iframe {
+        width: 100%; /* Full width on small screens */
+        height: 300px;
+    }
+}
+
+/* Custom Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@400;600;700&display=swap');
