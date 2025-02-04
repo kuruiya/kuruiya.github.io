@@ -23,7 +23,7 @@ body.dark-mode {
 
 /* Container */
 .container {
-    width: 90%;
+    width: 100%;
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
@@ -44,14 +44,43 @@ header {
 }
 
 header h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: #5cb85c;
     font-weight: 700;
 }
 
 header p {
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: #777;
+}
+
+/* Search Bar */
+.search-bar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.search-bar input {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px 0 0 6px;
+    font-size: 1rem;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 0 6px 6px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-bar button:hover {
+    background-color: #4cae4c;
 }
 
 /* Content */
@@ -60,21 +89,28 @@ header p {
 }
 
 .content h2 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     color: #5cb85c;
     margin-bottom: 15px;
 }
 
 .story-text {
-    font-size: 1.1rem;
+    font-size: 1rem;
     line-height: 1.8;
     text-align: justify;
+}
+
+.highlight {
+    background-color: yellow;
+    color: black;
 }
 
 /* Controls */
 .controls {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
     margin-bottom: 20px;
 }
 
@@ -86,10 +122,59 @@ header p {
     border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s;
+    font-size: 1rem;
 }
 
 .controls button:hover {
     background-color: #4cae4c;
+}
+
+/* Social Share Buttons */
+.social-share {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.social-share button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1rem;
+}
+
+.social-share button:hover {
+    background-color: #555;
+}
+
+/* Text-to-Speech Controls */
+.text-to-speech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.text-to-speech button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1rem;
+}
+
+.text-to-speech button:hover {
+    background-color: #0056b3;
 }
 
 /* Dark Mode Toggle */
@@ -103,6 +188,8 @@ header p {
     border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s;
+    font-size: 1rem;
+    margin-bottom: 20px;
 }
 
 .dark-mode-toggle:hover {
@@ -119,4 +206,73 @@ footer {
 
 body.dark-mode footer {
     color: #ccc;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    header p {
+        font-size: 0.9rem;
+    }
+
+    .search-bar input {
+        width: 60%;
+    }
+
+    .search-bar button {
+        padding: 10px 15px;
+    }
+
+    .content h2 {
+        font-size: 1.3rem;
+    }
+
+    .story-text {
+        font-size: 0.9rem;
+    }
+
+    .controls button,
+    .social-share button,
+    .text-to-speech button,
+    .dark-mode-toggle {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    header p {
+        font-size: 0.8rem;
+    }
+
+    .search-bar input {
+        width: 50%;
+    }
+
+    .search-bar button {
+        padding: 8px 12px;
+    }
+
+    .content h2 {
+        font-size: 1.1rem;
+    }
+
+    .story-text {
+        font-size: 0.8rem;
+    }
+
+    .controls button,
+    .social-share button,
+    .text-to-speech button,
+    .dark-mode-toggle {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
 }
