@@ -72,6 +72,7 @@ nav ul li a:hover {
 /* Featured Section */
 .featured-section {
     margin: 40px 0;
+    color: white;
 }
 
 .featured-card {
@@ -127,6 +128,7 @@ nav ul li a:hover {
 /* Novels Grid Section */
 .video-grid {
     margin: 40px 0;
+    color: white;
 }
 
 .grid-container {
