@@ -46,7 +46,68 @@ header p {
     font-weight: 300;
 }
 
-/* Navigation */
+/* Navigation Styles */
+nav {
+    margin-top: 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    display: block;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #5cb85c;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Active Menu Item */
+nav ul li a.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #5cb85c;
+}
+
+nav ul li a.active::after {
+    width: 100%;
+}
 nav ul {
     list-style: none;
     padding: 0;
