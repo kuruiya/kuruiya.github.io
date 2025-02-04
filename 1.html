@@ -25,8 +25,8 @@
 
         <!-- Begin Reading Button -->
         <div class="controls">
-            <button onclick="begin()">เริ่มต้นอ่าน</button>
-            <button onclick="back()">กลับไปที่หน้าหลัก</button>
+            <button id="begin-reading-btn">เริ่มต้นอ่าน</button>
+            <button id="back-to-home-btn">กลับไปที่หน้าหลัก</button>
         </div>
 
         <!-- Footer -->
@@ -63,7 +63,7 @@
                 const listItem = document.createElement('li');
                 const chapterLink = document.createElement('a');
                 chapterLink.href = chapter.link;
-                chapterLink.textContent = chapter.title;
+                chapterLink.textContent = `${index + 1}. ${chapter.title}`; // Add chapter number
                 listItem.appendChild(chapterLink);
                 chapterList.appendChild(listItem);
             });
@@ -73,7 +73,7 @@
         }
 
         // Function to handle the "Begin Reading" button
-        function begin() {
+        function beginReading() {
             if (chapters.length > 0) {
                 // Redirect to the first chapter
                 window.location.href = chapters[0].link;
@@ -83,9 +83,13 @@
         }
 
         // Function to handle the "Back to Home" button
-        function back() {
+        function backToHome() {
             window.location.href = "index.html";
         }
+
+        // Event Listeners
+        document.getElementById('begin-reading-btn').addEventListener('click', beginReading);
+        document.getElementById('back-to-home-btn').addEventListener('click', backToHome);
 
         // Generate the chapter list when the page loads
         window.onload = generateChapterList;
