@@ -107,29 +107,7 @@ nav ul li a.active {
 
 nav ul li a.active::after {
     width: 100%;
-}
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 20px 0 0;
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-nav ul li a:hover {
-    color: #ddd;
-}
-
+}
 /* Featured Section */
 .featured-section {
     margin: 40px 0;
