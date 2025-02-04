@@ -334,3 +334,69 @@ function scrollToTop() {
         behavior: "smooth" // Smooth scrolling animation
     });
             }
+// Function to search text in the content
+function searchText() {
+    const searchTerm = document.getElementById('search-input').value;
+    const storyText = document.querySelector('.story-text');
+    const content = storyText.innerText;
+
+    if (content.includes(searchTerm)) {
+        alert(`พบคำว่า "${searchTerm}" ในเนื้อหา`);
+        storyText.innerHTML = content.replace(new RegExp(searchTerm, 'gi'), match => `<span class="highlight">${match}</span>`);
+    } else {
+        alert(`ไม่พบคำว่า "${searchTerm}" ในเนื้อหา`);
+    }
+}
+
+// Function to share on Facebook
+function shareOnFacebook() {
+    const url = encodeURIComponent(window.location.href);
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+}
+
+// Function to share on Twitter
+function shareOnTwitter() {
+    const text = encodeURIComponent('อ่านเรื่องนี้ที่น่าสนใจมาก!');
+    const url = encodeURIComponent(window.location.href);
+    window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank');
+}
+
+// Function to share on Line
+function shareOnLine() {
+    const text = encodeURIComponent('อ่านเรื่องนี้ที่น่าสนใจมาก! ' + window.location.href);
+    window.open(`https://social-plugins.line.me/lineit/share?url=${text}`, '_blank');
+}
+
+// Text-to-Speech Functionality
+let speech = new SpeechSynthesisUtterance();
+speech.lang = 'th-TH';
+
+function startSpeech() {
+    const storyText = document.querySelector('.story-text').innerText;
+    speech.text = storyText;
+    window.speechSynthesis.speak(speech);
+}
+
+function pauseSpeech() {
+    window.speechSynthesis.pause();
+}
+
+// Save reading progress
+function saveProgress() {
+    const scrollPosition = window.scrollY;
+    localStorage.setItem('readingProgress', scrollPosition);
+}
+
+// Load reading progress
+function loadProgress() {
+    const scrollPosition = localStorage.getItem('readingProgress');
+    if (scrollPosition) {
+        window.scrollTo(0, parseInt(scrollPosition));
+    }
+}
+
+// Load progress when the page loads
+window.onload = loadProgress;
+
+// Save progress when the user scrolls
+window.onscroll = saveProgress;
