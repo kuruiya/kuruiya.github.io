@@ -3,28 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kuruiya the collection</title>
+    <title>Kuruiya the Collection</title>
     <link rel="stylesheet" href="..\css\style2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="description" content="Explore all of Kuruiya's collection in one place.">
 </head>
 <body>
     <div class="container">
+        <!-- Header Section -->
         <header>
-            <h1>Kuruiya the collection</h1>
-            <p>all of my novel</p>
+            <h1>Kuruiya the Collection</h1>
+            <p>All of My Novels</p>
+            <nav>
+                <ul>
+                    <li><a href="#featured">Featured</a></li>
+                    <li><a href="#novels">Novels</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </header>
 
-        <div class="video-grid">
-            <!-- Video 1 -->
-            <a href="1.html" class="video-card">
-                <img src="../asset/image/theone.jpeg" alt="the page" class="video-thumbnail">
-                <div class="video-info">
-                    <h3 class="video-title">The one</h3>
-                    <p class="video-author">By kuruiya</p>
+        <!-- Main Content Section -->
+        <main>
+            <!-- Featured Section -->
+            <section id="featured" class="featured-section">
+                <h2>Featured Novel</h2>
+                <div class="featured-card">
+                    <img src="thumb1.jpg" alt="The One Novel Thumbnail" class="featured-thumbnail">
+                    <div class="featured-info">
+                        <h3 class="featured-title">The One</h3>
+                        <p class="featured-author">By Kuruiya</p>
+                        <p class="featured-description">A power, loss, and redemption. Dive into the world of "The One" and experience a story that will stay with you forever.</p>
+                        <a href="1.html" class="btn-read">Read Now</a>
+                    </div>
                 </div>
-            </a>
+            </section>
 
+            <!-- Novels Grid Section -->
+            <section id="novels" class="video-grid">
+                <h2>All Novels</h2>
+                <div class="grid-container">
+                    <!-- Video 1 -->
+                    <a href="1.html" class="video-card" aria-label="View The One by Kuruiya">
+                        <img src="../asset/image/theone.jpeg" alt="The One Novel Thumbnail" class="video-thumbnail">
+                        <div class="video-info">
+                            <h3 class="video-title">The One</h3>
+                            <p class="video-author">By Kuruiya</p>
+                            <p class="video-description">A story of shame and destiny.</p>
+                        </div>
+                    </a>
+                    <!-- Video 2 -->
+                    <!-- Add more video cards here as needed -->
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="about-section">
+                <h2>About Kuruiya</h2>
+                <p>Kuruiya is a passionate writer who creates captivating stories that resonate with readers. With a unique storytelling style, Kuruiya brings characters and worlds to life.</p>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="contact-section">
+                <h2>Contact Me</h2>
+                <form action="#" method="post">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                    <button type="submit" class="btn-submit">Send Message</button>
+                </form>
+            </section>
+        </main>
+
+        <!-- Footer Section -->
         <footer>
-            <p>&copy; novel</p>
+            <div class="social-links">
+                <a href="https://www.youtube.com/channel/UCoTrDpPQG-gifNawgTe4f7w" aria-label="Youtube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.instagram.com/maninlore/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/chindanai.junnongweang" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            </div>
+            <p>&copy; 2023 Kuruiya. All rights reserved.</p>
         </footer>
     </div>
 </body>
