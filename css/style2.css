@@ -107,7 +107,30 @@ nav ul li a.active {
 
 nav ul li a.active::after {
     width: 100%;
-}
+}
+/* Mobile Navigation */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column; /* จัดเมนูเป็นแนวตั้ง */
+        gap: 10px;
+        align-items: center;
+    }
+
+    nav ul li a {
+        width: 100%; /* ทำให้ปุ่มเมนูเต็มความกว้าง */
+        text-align: center;
+        padding: 12px 0; /* ปรับ padding ให้เหมาะสม */
+        font-size: 1rem; /* ปรับขนาดฟอนต์ให้เล็กลง */
+    }
+
+    nav ul li a:hover {
+        transform: none; /* ปิดการขยับเมนูเมื่อโฮเวอร์บนมือถือ */
+    }
+
+    nav ul li a::after {
+        display: none; /* ปิดเส้นใต้บนมือถือ */
+    }
+}
 /* Featured Section */
 .featured-section {
     margin: 40px 0;
