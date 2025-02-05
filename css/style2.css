@@ -60,32 +60,11 @@ header nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: 600;
-    position: relative;
     transition: color 0.3s ease;
 }
 
-/* Custom Underline Effect for Navigation Links */
-header nav ul li a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, var(--hover-color), var(--main-color));
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.3s ease;
-}
-
-header nav ul li a:hover::after {
-    transform: scaleX(1);
-    transform-origin: left;
-}
-
-/* Main Content Section */
-main {
-    padding: var(--spacing-unit) 0;
+header nav ul li a:hover {
+    color: var(--hover-color);
 }
 
 /* Featured Section */
@@ -113,8 +92,8 @@ main {
     transform-style: preserve-3d; /* Ensures the back side is hidden initially */
 }
 
-.featured-card:hover .card-inner {
-    transform: rotateY(180deg); /* Flip the card on hover */
+.featured-card.flipped .card-inner {
+    transform: rotateY(180deg); /* Flip the card when the class is added */
 }
 
 .card-front,
@@ -298,31 +277,6 @@ main {
 
 .blog-post p {
     font-size: 0.9em;
-}
-
-/* Custom Underline Effect for Blog Links */
-.blog-post h3 a {
-    color: white;
-    text-decoration: none;
-    position: relative;
-}
-
-.blog-post h3 a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, var(--hover-color), var(--main-color));
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.3s ease;
-}
-
-.blog-post h3 a:hover::after {
-    transform: scaleX(1);
-    transform-origin: left;
 }
 
 /* Gallery Section */
