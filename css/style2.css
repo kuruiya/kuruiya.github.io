@@ -1,116 +1,365 @@
-/* ทั่วไป */
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variables for Colors and Font Sizes */
+:root {
+    --main-color: #8B5A2B; /* Dark brown */
+    --hover-color: #04AA6D; /* Green for hover */
+    --background-color: #f4e1d8; /* Light background */
+    --text-color: #333; /* Main text color */
+    --font-size-base: 16px;
+    --font-size-large: 1.8em;
+    --spacing-unit: 20px;
+}
+
 body {
-  font-family: 'Noto Serif Thai', serif;
-  margin: 0;
-  background-color: #f5f5dc; /* สีเบจ */
-  color: #333; /* สีน้ำตาลเข้ม */
-  line-height: 1.6;
+    font-family: 'Noto Serif Thai', serif;
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: var(--text-color);
 }
 
+/* Container */
 .container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-unit);
 }
 
-/* หัวกระดาษ */
+/* Header Section */
 header {
-  text-align: center;
-  padding: 20px 0;
-  margin-bottom: 20px;
+    text-align: center;
+    padding: var(--spacing-unit) 0;
+    background-color: var(--main-color);
+    color: white;
 }
 
-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
 }
 
-nav li {
-  display: inline;
-  margin: 0 15px;
+header p {
+    font-size: 1.2em;
+    margin-bottom: var(--spacing-unit);
 }
 
-nav a {
-  text-decoration: none;
-  color: #5c3a21; /* สีน้ำตาลเข้ม */
-  transition: color 0.3s ease;
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-unit);
 }
 
-nav a:hover {
-  color: #a66235; /* สีน้ำตาลอ่อน */
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
 }
 
-/* เนื้อหา */
-section {
-  margin-bottom: 20px;
-  padding: 20px;
-  background-color: #fff8dc; /* สีขาวนวล */
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+header nav ul li a:hover {
+    color: var(--hover-color);
 }
 
-/* รูปภาพ */
-.featured-thumbnail,
-.video-thumbnail,
-.gallery-grid img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px; /* ขอบมน */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* เงา */
-  transition: transform 0.3s ease;
+/* Main Content Section */
+main {
+    padding: var(--spacing-unit) 0;
 }
 
-.featured-thumbnail:hover,
-.video-thumbnail:hover,
-.gallery-grid img:hover {
-  transform: scale(1.05); /* ขยายเล็กน้อยเมื่อเมาส์อยู่เหนือ */
+/* Featured Section */
+.featured-section {
+    background-color: var(--background-color);
+    padding: var(--spacing-unit);
+    border-radius: 8px;
+    margin-bottom: var(--spacing-unit);
 }
 
-/* ปุ่ม */
-.btn-read,
+.featured-card {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-unit);
+}
+
+.featured-thumbnail {
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.featured-info {
+    flex: 1;
+}
+
+.featured-title {
+    font-size: var(--font-size-large);
+    margin-bottom: 10px;
+}
+
+.featured-author {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.featured-description {
+    margin-bottom: var(--spacing-unit);
+}
+
+/* Novels Grid Section */
+.video-grid {
+    margin-bottom: var(--spacing-unit);
+}
+
+.video-grid h2 {
+    margin-bottom: var(--spacing-unit);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-unit);
+}
+
+.video-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.video-card:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+.video-thumbnail {
+    width: 100%;
+    height: auto;
+}
+
+.video-info {
+    padding: var(--spacing-unit);
+}
+
+.video-title {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.video-author {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.video-description {
+    font-size: 0.9em;
+}
+
+/* Reviews Section */
+.reviews-section {
+    background-color: var(--background-color);
+    padding: var(--spacing-unit);
+    border-radius: 8px;
+    margin-bottom: var(--spacing-unit);
+}
+
+.reviews-section h2 {
+    margin-bottom: var(--spacing-unit);
+}
+
+.review-card {
+    background-color: #fff;
+    padding: var(--spacing-unit);
+    border-radius: 8px;
+    margin-bottom: var(--spacing-unit);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.review-card p {
+    font-style: italic;
+}
+
 .btn-submit {
-  background-color: #a66235; /* สีน้ำตาลอ่อน */
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: transform 0.3s ease;
-  cursor: pointer;
+    display: inline-block;
+    background-color: var(--main-color);
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
-.btn-read:hover,
 .btn-submit:hover {
-  background-color: #5c3a21; /* สีน้ำตาลเข้ม */
-  transform: translateY(-2px); /* ขยับขึ้นเล็กน้อยเมื่อเมาส์อยู่เหนือ */
+    background-color: var(--hover-color);
 }
 
-/* อนิเมชั่นเปิดหนังสือ (ตัวอย่าง) */
-.btn-read::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("book_texture.jpg"); /* ใส่รูปภาพพื้นผิวหนังสือ */
-  opacity: 0;
-  transition: opacity 0.3s ease;
+/* Blog Section */
+.blog-section {
+    margin-bottom: var(--spacing-unit);
 }
 
-.btn-read:hover::before {
-  opacity: 1;
+.blog-section h2 {
+    margin-bottom: var(--spacing-unit);
 }
 
-/* การตอบสนอง */
-@media (max-width: 768px) {
-  nav li {
-    display: block;
-    margin: 10px 0;
-  }
+.blog-post {
+    background-color: #fff;
+    padding: var(--spacing-unit);
+    border-radius: 8px;
+    margin-bottom: var(--spacing-unit);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
-  .grid-container {
+.blog-post h3 {
+    margin-bottom: 10px;
+}
+
+.blog-post p {
+    font-size: 0.9em;
+}
+
+/* Gallery Section */
+.gallery-section {
+    margin-bottom: var(--spacing-unit);
+}
+
+.gallery-section h2 {
+    margin-bottom: var(--spacing-unit);
+}
+
+.gallery-grid {
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
+    gap: var(--spacing-unit);
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* FAQ Section */
+.faq-section {
+    margin-bottom: var(--spacing-unit);
+}
+
+.faq-section h2 {
+    margin-bottom: var(--spacing-unit);
+}
+
+.faq-item {
+    background-color: #fff;
+    padding: var(--spacing-unit);
+    border-radius: 8px;
+    margin-bottom: var(--spacing-unit);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.faq-item h3 {
+    margin-bottom: 10px;
+}
+
+.faq-item p {
+    font-size: 0.9em;
+}
+
+/* About Section */
+.about-section {
+    margin-bottom: var(--spacing-unit);
+}
+
+.about-section h2 {
+    margin-bottom: var(--spacing-unit);
+}
+
+.about-section p {
+    font-size: 0.9em;
+}
+
+/* Contact Section */
+.contact-section {
+    margin-bottom: var(--spacing-unit);
+}
+
+.contact-section h2 {
+    margin-bottom: var(--spacing-unit);
+}
+
+.contact-section form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-unit);
+}
+
+.contact-section label {
+    font-weight: 600;
+}
+
+.contact-section input,
+.contact-section textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.contact-section button {
+    background-color: var(--main-color);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-section button:hover {
+    background-color: var(--hover-color);
+}
+
+/* Footer Section */
+footer {
+    text-align: center;
+    padding: var(--spacing-unit) 0;
+    background-color: var(--main-color);
+    color: white;
+}
+
+.social-links {
+    margin-bottom: var(--spacing-unit);
+}
+
+.social-links a {
+    color: white;
+    margin: 0 10px;
+    font-size: 1.5em;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--hover-color);
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    header nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .featured-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
 }
