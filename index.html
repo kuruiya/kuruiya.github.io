@@ -9,6 +9,427 @@
     <meta name="description" content="Explore all of Kuruiya's collection in one place.">
     <style>
         /* Add the full CSS here (provided below) */
+        /* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variables for Colors and Font Sizes */
+:root {
+    --main-color: #8B5A2B; /* Dark brown */
+    --hover-color: #A0522D; /* Slightly lighter brown for hover */
+    --background-color: #f5f5dc; /* Beige */
+    --text-color: #333; /* Main text color */
+    --font-size-base: 16px;
+    --font-size-large: 1.8em;
+    --spacing-unit: 20px;
+}
+
+body {
+    font-family: 'Noto Serif Thai', serif;
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-unit);
+}
+
+/* Header Section */
+header {
+    text-align: center;
+    padding: var(--spacing-unit) 0;
+    background-color: var(--main-color);
+    color: white;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2em;
+    margin-bottom: var(--spacing-unit);
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-unit);
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: var(--hover-color);
+}
+
+/* Featured Section */
+.featured-section {
+    background-color: var(--main-color);
+    padding: var(--spacing-unit);
+    border-radius: 8px;
+    margin-bottom: var(--spacing-unit);
+    color: white;
+    text-align: center;
+}
+
+.featured-card {
+    perspective: 1000px; /* Enables 3D space for flipping */
+    width: 100%;
+    max-width: 400px; /* Adjust as needed */
+    margin: 0 auto;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d; /* Ensures the back side is hidden initially */
+}
+
+.featured-card.flipped .card-inner {
+    transform: rotateY(180deg); /* Flip the card when the class is added */
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Hides the back side of the card */
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: var(--hover-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-front {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-unit);
+}
+
+.card-back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY(180deg); /* Initially hides the back side */
+}
+
+.featured-thumbnail {
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: var(--spacing-unit);
+}
+
+.featured-info {
+    text-align: center;
+}
+
+.featured-title {
+    font-size: var(--font-size-large);
+    margin-bottom: 10px;
+}
+
+.featured-author {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.featured-description {
+    margin-bottom: var(--spacing-unit);
+}
+
+.btn-read {
+    display: inline-block;
+    background-color: var(--main-color);
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+}
+
+.btn-read:hover {
+    background-color: #8B4513;
+}
+
+/* Novels Grid Section */
+.video-grid {
+    margin-bottom: var(--spacing-unit);
+}
+
+.video-grid h2 {
+    margin-bottom: var(--spacing-unit);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-unit);
+}
+
+.video-card {
+    background-color: var(--main-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    color: white;
+}
+
+.video-card:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+.video-thumbnail {
+    width: 100%;
+    height: auto;
+}
+
+.video-info {
+    padding: var(--spacing-unit);
+}
+
+.video-title {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.video-author {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.video-description {
+    font-size: 0.9em;
+}
+
+/* Reviews Section */
+.reviews-section {
+    background-color: var(--main-color);
+    padding: var(--spacing-unit);
+    border-radius: 8px;
+    margin-bottom: var(--spacing-unit);
+    color: white;
+}
+
+.reviews-section h2 {
+    margin-bottom: var(--spacing-unit);
+}
+
+.review-card {
+    background-color: var(--hover-color);
+    padding: var(--spacing-unit);
+    border-radius: 8px;
+    margin-bottom: var(--spacing-unit);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.review-card p {
+    font-style: italic;
+}
+
+.btn-submit {
+    display: inline-block;
+    background-color: var(--hover-color);
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #8B4513;
+}
+
+/* Blog Section */
+.blog-section {
+    margin-bottom: var(--spacing-unit);
+}
+
+.blog-section h2 {
+    margin-bottom: var(--spacing-unit);
+}
+
+.blog-post {
+    background-color: var(--main-color);
+    padding: var(--spacing-unit);
+    border-radius: 8px;
+    margin-bottom: var(--spacing-unit);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+.blog-post h3 {
+    margin-bottom: 10px;
+}
+
+.blog-post p {
+    font-size: 0.9em;
+}
+
+/* Gallery Section */
+.gallery-section {
+    margin-bottom: var(--spacing-unit);
+}
+
+.gallery-section h2 {
+    margin-bottom: var(--spacing-unit);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-unit);
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* FAQ Section */
+.faq-section {
+    margin-bottom: var(--spacing-unit);
+}
+
+.faq-section h2 {
+    margin-bottom: var(--spacing-unit);
+}
+
+.faq-item {
+    background-color: var(--main-color);
+    padding: var(--spacing-unit);
+    border-radius: 8px;
+    margin-bottom: var(--spacing-unit);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+.faq-item h3 {
+    margin-bottom: 10px;
+}
+
+.faq-item p {
+    font-size: 0.9em;
+}
+
+/* About Section */
+.about-section {
+    margin-bottom: var(--spacing-unit);
+}
+
+.about-section h2 {
+    margin-bottom: var(--spacing-unit);
+}
+
+.about-section p {
+    font-size: 0.9em;
+}
+
+/* Contact Section */
+.contact-section {
+    margin-bottom: var(--spacing-unit);
+}
+
+.contact-section h2 {
+    margin-bottom: var(--spacing-unit);
+}
+
+.contact-section form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-unit);
+}
+
+.contact-section label {
+    font-weight: 600;
+}
+
+.contact-section input,
+.contact-section textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.contact-section button {
+    background-color: var(--hover-color);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-section button:hover {
+    background-color: #8B4513;
+}
+
+/* Footer Section */
+footer {
+    text-align: center;
+    padding: var(--spacing-unit) 0;
+    background-color: var(--main-color);
+    color: white;
+}
+
+.social-links {
+    margin-bottom: var(--spacing-unit);
+}
+
+.social-links a {
+    color: white;
+    margin: 0 10px;
+    font-size: 1.5em;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--hover-color);
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    header nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .featured-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+}
     </style>
 </head>
 <body>
@@ -154,5 +575,12 @@
             <p>&copy; 2023 Kuruiya. All rights reserved.</p>
         </footer>
     </div>
+
+    <!-- JavaScript for Flip Card -->
+    <script>
+        document.querySelector('.featured-card').addEventListener('click', function () {
+            this.querySelector('.card-inner').classList.toggle('flipped');
+        });
+    </script>
 </body>
 </html>
