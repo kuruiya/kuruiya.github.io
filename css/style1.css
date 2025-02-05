@@ -9,9 +9,10 @@
 :root {
     --main-color: #8B5A2B; /* Dark brown */
     --hover-color: #04AA6D; /* Green for hover */
-    --background-color: #f4e1d8; /* Light background */
+    --background-color: #f5f5dc; /* Beige */
     --text-color: #333; /* Main text color */
     --font-size-base: 16px;
+    --font-size-large: 1.8em;
     --spacing-unit: 20px;
 }
 
