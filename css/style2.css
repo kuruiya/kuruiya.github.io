@@ -1,223 +1,109 @@
-/* Global Reset */
+/* Reset some default styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body Styles */
 body {
     font-family: 'Noto Serif Thai', serif;
-    background-color: #77584b;
-    color: #333;
     line-height: 1.6;
-    padding: 20px;
+    background-color: #f9f9f9; /* สีพื้นหลัง */
+    color: #333; /* สีตัวอักษร */
 }
 
 /* Container */
 .container {
-    width: 90%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    background-color: rgb(63, 47, 36);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    border-radius: 12px;
 }
 
 /* Header */
 header {
-    text-align: center;
-    margin-bottom: 30px;
+    background-color: #8B5A2B; /* สีน้ำตาลเข้ม */
+    color: #fff; /* สีตัวอักษรใน header */
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
+    text-align: center;
 }
 
 header h1 {
-    font-size: 2.8rem;
-    color: #ffffff;
-    font-weight: 700;
+    font-size: 2.5em;
 }
 
-header p {
-    font-size: 1.3rem;
-    color: #cecece;
-    font-weight: 300;
+header nav ul {
+    list-style-type: none;
 }
 
-/* Navigation Styles */
-nav {
-    margin-top: 20px;
+header nav ul li {
+    display: inline;
+    margin: 0 15px;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-nav ul li {
-    position: relative;
-}
-
-nav ul li a {
-    color: #fff;
+header nav ul li a {
+    color: #fff; /* สีลิงก์ใน header */
     text-decoration: none;
-    font-weight: 600;
-    font-size: 1.1rem;
-    padding: 10px 20px;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-    display: block;
-    background-color: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-nav ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+/* Main Content */
+main {
+    padding: 20px;
 }
 
-nav ul li a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background-color: #5cb85c;
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
-}
-
-nav ul li a:hover::after {
-    width: 100%;
-}
-
-/* Active Menu Item */
-nav ul li a.active {
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #5cb85c;
-}
-
-nav ul li a.active::after {
-    width: 100%;
-}
-/* Mobile Navigation */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column; /* จัดเมนูเป็นแนวตั้ง */
-        gap: 10px;
-        align-items: center;
-    }
-
-    nav ul li a {
-        width: 100%; /* ทำให้ปุ่มเมนูเต็มความกว้าง */
-        text-align: center;
-        padding: 12px 0; /* ปรับ padding ให้เหมาะสม */
-        font-size: 1rem; /* ปรับขนาดฟอนต์ให้เล็กลง */
-    }
-
-    nav ul li a:hover {
-        transform: none; /* ปิดการขยับเมนูเมื่อโฮเวอร์บนมือถือ */
-    }
-
-    nav ul li a::after {
-        display: none; /* ปิดเส้นใต้บนมือถือ */
-    }
-}
 /* Featured Section */
 .featured-section {
-    margin: 40px 0;
-    color: white;
+    background-color: #f4e1d8; /* สีพื้นหลังของส่วน Featured */
+    padding: 20px;
+    border-radius: 8px;
 }
 
 .featured-card {
     display: flex;
     align-items: center;
-    background-color: #ffe8bc;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .featured-thumbnail {
-    width: 150px;
+    width: 150px; /* ขนาดภาพ thumbnail */
     height: auto;
-    margin-right: 20px;
-    border-radius: 5px;
+    border-radius: 8px;
 }
 
 .featured-info {
-    flex: 1;
+    margin-left: 20px;
 }
 
 .featured-title {
-    margin: 0;
-    font-size: 1.8rem;
-    color: #2d2d2d;
-}
-
-.featured-author {
-    margin: 5px 0;
-    color: #555;
-}
-
-.featured-description {
-    margin: 10px 0;
-    color: #777;
+    font-size: 1.8em;
 }
 
 .btn-read {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #5cb85c;
-    color: white;
+    background-color: #8B5A2B; /* สีน้ำตาลเข้ม */
+    color: #fff; /* สีตัวอักษรปุ่ม */
+    padding: 10px 15px;
     text-decoration: none;
-    border-radius: 6px;
-    transition: background-color 0.3s;
-}
-
-.btn-read:hover {
-    background-color: #4cae4c;
+    border-radius: 5px;
 }
 
 /* Novels Grid Section */
 .video-grid {
-    margin: 40px 0;
-    color: white;
+    margin-top: 30px;
 }
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px; /* ช่องว่างระหว่างการ์ด */
 }
 
 .video-card {
-    background-color: #ffe8bc;
+    background-color: #fff; /* สีพื้นหลังของการ์ดนิยาย */
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    text-align: center;
-    transition: transform 0.3s;
-    text-decoration: none;
-    color: inherit;
-}
-
-.video-card:hover {
-    transform: scale(1.05);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    overflow: hidden; /* ป้องกันการแสดงผลที่เกินขอบการ์ด */
 }
 
 .video-thumbnail {
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
+    width: 100%; /* ให้ภาพเต็มขนาดการ์ด */
 }
 
 .video-info {
@@ -225,116 +111,23 @@ nav ul li a.active::after {
 }
 
 .video-title {
-    font-size: 1.2rem;
-    color: #2d2d2d;
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-
-.video-author {
-    font-size: 1rem;
-    color: #555;
+    font-size: 1.5em;
 }
 
 /* About Section */
-.about-section {
-    margin: 40px 0;
-    text-align: center;
-    color: #fff;
-}
-
-.about-section h2 {
-    margin-bottom: 20px;
-}
-
-/* Contact Section */
-.contact-section {
-    margin: 40px 0;
-    color: #fff;
-}
-
-.contact-section form {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.contact-section label {
-    display: block;
-    margin: 10px 0 5px;
-}
-
-.contact-section input,
-.contact-section textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.btn-submit {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #5cb85c;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.btn-submit:hover {
-    background-color: #4cae4c;
+.about-section, .contact-section, .reviews-section, .blog-section, .newsletter-section, .gallery-section, .video-trailer-section, .faq-section {
+    margin-top: 40px;
 }
 
 /* Footer */
 footer {
+    background-color: #8B5A2B; /* สีน้ำตาลเข้ม */
+    color: #fff; /* สีตัวอักษรใน footer */
     text-align: center;
-    font-size: 0.9rem;
-    color: #cecece;
-    margin-top: 30px;
-    padding: 15px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
+    padding: 20px;
 }
 
 .social-links a {
-    color: #fff;
-    margin: 0 10px;
-    font-size: 1.5rem;
-    transition: color 0.3s;
-}
-
-.social-links a:hover {
-    color: #ddd;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .container {
-        width: 95%;
-        padding: 15px;
-    }
-
-    header h1 {
-        font-size: 2.2rem;
-    }
-
-    header p {
-        font-size: 1.1rem;
-    }
-
-    .video-title {
-        font-size: 1rem;
-    }
-
-    .featured-card {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .featured-thumbnail {
-        margin-right: 0;
-        margin-bottom: 20px;
-    }
+    color: #fff; /* สีลิงก์ใน footer */
+    margin-right: 10px;
 }
