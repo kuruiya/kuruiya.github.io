@@ -44,12 +44,12 @@ header {
 }
 
 header h1 {
-    font-size: 2.5em;
+    font-size: 2em; /* Smaller font size for mobile */
     margin-bottom: 10px;
 }
 
 header p {
-    font-size: 1.2em;
+    font-size: 1em; /* Smaller font size for mobile */
     margin-bottom: var(--spacing-unit);
 }
 
@@ -89,7 +89,7 @@ header nav ul li a:hover::after {
 
 /* Main Content Section */
 main {
-    padding-top: 150px; /* Adjust for fixed header */
+    padding-top: 120px; /* Adjust for fixed header */
 }
 
 /* Featured Section */
@@ -103,12 +103,15 @@ main {
 
 .featured-card {
     display: flex;
+    flex-direction: column; /* Stack vertically on mobile */
     align-items: center;
     gap: var(--spacing-unit);
+    text-align: center; /* Center text on mobile */
 }
 
 .featured-thumbnail {
-    width: 150px;
+    width: 100%; /* Full width on mobile */
+    max-width: 300px; /* Limit maximum width */
     height: auto;
     border-radius: 8px;
 }
@@ -118,7 +121,7 @@ main {
 }
 
 .featured-title {
-    font-size: var(--font-size-large);
+    font-size: 1.5em; /* Smaller font size for mobile */
     margin-bottom: 10px;
 }
 
@@ -156,7 +159,7 @@ main {
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Flexible grid */
     gap: var(--spacing-unit);
 }
 
@@ -255,6 +258,7 @@ main {
 }
 
 .blog-post h3 {
+    font-size: 1.2em; /* Smaller font size for mobile */
     margin-bottom: 10px;
 }
 
@@ -298,7 +302,7 @@ main {
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Flexible grid */
     gap: var(--spacing-unit);
 }
 
@@ -327,6 +331,7 @@ main {
 }
 
 .faq-item h3 {
+    font-size: 1.2em; /* Smaller font size for mobile */
     margin-bottom: 10px;
 }
 
@@ -411,19 +416,39 @@ footer {
     color: var(--hover-color);
 }
 
-/* Responsive Styles */
+/* Responsive Styles for Mobile Devices */
 @media screen and (max-width: 768px) {
+    header h1 {
+        font-size: 1.5em; /* Smaller font size for mobile */
+    }
+
+    header p {
+        font-size: 0.9em; /* Smaller font size for mobile */
+    }
+
     header nav ul {
-        flex-direction: column;
+        flex-direction: column; /* Stack navigation links vertically */
         gap: 10px;
     }
 
     .featured-card {
-        flex-direction: column;
+        flex-direction: column; /* Stack featured content vertically */
         text-align: center;
     }
 
     .grid-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Single column for novels grid */
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Smaller images for mobile */
+    }
+
+    .blog-post h3 {
+        font-size: 1em; /* Smaller font size for mobile */
+    }
+
+    .faq-item h3 {
+        font-size: 1em; /* Smaller font size for mobile */
     }
 }
