@@ -53,14 +53,36 @@ header p {
     margin-bottom: var(--spacing-unit);
 }
 
-header nav ul {
-    list-style: none;
+/* Compass Icon */
+.compass-icon {
+    display: none; /* Hide by default on larger screens */
+    cursor: pointer;
+    font-size: 24px;
+    color: white;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    transition: transform 0.5s ease;
+}
+
+.compass-icon.active {
+    transform: rotate(360deg); /* Rotate compass icon when active */
+}
+
+/* Navigation Bar */
+nav {
     display: flex;
     justify-content: center;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
     gap: var(--spacing-unit);
 }
 
-header nav ul li a {
+nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: 600;
@@ -69,7 +91,7 @@ header nav ul li a {
 }
 
 /* Slide Animation for Navigation Links */
-header nav ul li a::after {
+nav ul li a::after {
     content: '';
     position: absolute;
     left: 0;
@@ -82,9 +104,37 @@ header nav ul li a::after {
     transition: transform 0.3s ease;
 }
 
-header nav ul li a:hover::after {
+nav ul li a:hover::after {
     transform: scaleX(1);
     transform-origin: left;
+}
+
+/* Hide Navigation Bar by Default on Mobile */
+@media screen and (max-width: 767px) {
+    .compass-icon {
+        display: block; /* Show compass icon on mobile */
+    }
+
+    nav {
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        top: 80px;
+        right: 20px;
+        background-color: var(--main-color);
+        border-radius: 8px;
+        padding: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    nav.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack navigation links vertically */
+    }
 }
 
 /* Main Content Section */
@@ -444,11 +494,6 @@ footer {
 
     header p {
         font-size: 0.9em; /* Smaller font size for mobile */
-    }
-
-    header nav ul {
-        flex-direction: column; /* Stack navigation links vertically */
-        gap: 10px;
     }
 
     .featured-card {
