@@ -306,7 +306,7 @@ function toggleDarkMode() {
     body.classList.toggle('dark-mode');
 
     // Play click sound
-    const clickSound = new Audio('click-sound.mp3'); // Add a click sound file
+    const clickSound = new Audio('../asset/sound/lightswitch.wav'); // Add a click sound file
     clickSound.play();
 }
 
