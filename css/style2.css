@@ -159,8 +159,28 @@ main {
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Flexible grid */
     gap: var(--spacing-unit);
+}
+
+/* Desktop: 5 columns */
+@media screen and (min-width: 1024px) {
+    .grid-container {
+        grid-template-columns: repeat(5, 1fr); /* 5 columns on desktop */
+    }
+}
+
+/* Tablet: 3 columns */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns on tablet */
+    }
+}
+
+/* Mobile: 2 columns */
+@media screen and (max-width: 767px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+    }
 }
 
 .video-card {
@@ -417,7 +437,7 @@ footer {
 }
 
 /* Responsive Styles for Mobile Devices */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
     header h1 {
         font-size: 1.5em; /* Smaller font size for mobile */
     }
@@ -434,10 +454,6 @@ footer {
     .featured-card {
         flex-direction: column; /* Stack featured content vertically */
         text-align: center;
-    }
-
-    .grid-container {
-        grid-template-columns: 1fr; /* Single column for novels grid */
     }
 
     .gallery-grid {
