@@ -95,63 +95,22 @@ main {
     border-radius: 8px;
     margin-bottom: var(--spacing-unit);
     color: white;
-    text-align: center;
 }
 
 .featured-card {
-    perspective: 1000px; /* Enables 3D space for flipping */
-    width: 100%;
-    max-width: 400px; /* Adjust as needed */
-    margin: 0 auto;
-}
-
-.card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.8s;
-    transform-style: preserve-3d; /* Ensures the back side is hidden initially */
-}
-
-.featured-card:hover .card-inner {
-    transform: rotateY(180deg); /* Flip the card on hover */
-}
-
-.card-front,
-.card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden; /* Hides the back side of the card */
-    border-radius: 8px;
-    overflow: hidden;
-    background-color: var(--hover-color);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.card-front {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    padding: var(--spacing-unit);
-}
-
-.card-back {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: rotateY(180deg); /* Initially hides the back side */
+    gap: var(--spacing-unit);
 }
 
 .featured-thumbnail {
     width: 150px;
     height: auto;
     border-radius: 8px;
-    margin-bottom: var(--spacing-unit);
 }
 
 .featured-info {
-    text-align: center;
+    flex: 1;
 }
 
 .featured-title {
@@ -170,19 +129,17 @@ main {
 
 .btn-read {
     display: inline-block;
-    background-color: var(--main-color);
+    background-color: var(--hover-color);
     color: white;
-    padding: 10px 20px;
+    padding: 10px 15px;
     text-decoration: none;
     border-radius: 5px;
-    font-size: 1.2em;
     transition: background-color 0.3s ease;
 }
 
 .btn-read:hover {
     background-color: #8B4513;
 }
-
 
 /* Novels Grid Section */
 .video-grid {
