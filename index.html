@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kuruiya the Collection</title>
-    <link rel="stylesheet" href="..\css\style2.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@400;600;700&display=swap" rel="stylesheet">
     <meta name="description" content="Explore all of Kuruiya's collection in one place.">
+    <style>
+        /* Add the full CSS here (provided below) */
+    </style>
 </head>
 <body>
     <div class="container">
@@ -18,7 +20,7 @@
             <nav>
                 <ul>
                     <li><a href="#featured">Featured</a></li>
-                    <li><a href="#novels">Novels</a></li>
+                    <li><a href#novels">Novels</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -28,31 +30,32 @@
         <!-- Main Content Section -->
         <main>
             <!-- Featured Section -->
-<section id="featured" class="featured-section">
-    <h2>Featured Novel</h2>
-    <div class="featured-card">
-        <div class="card-inner">
-            <!-- Front Side -->
-            <div class="card-front">
-                <img src="../asset/image/the-one/theone.jpeg" alt="The One Novel Thumbnail" class="featured-thumbnail">
-                <div class="featured-info">
-                    <h3 class="featured-title">The One</h3>
-                    <p class="featured-author">By Kuruiya</p>
-                    <p class="featured-description">A story of power, loss, and redemption. Dive into the world of "The One" and experience a story that will stay with you forever.</p>
+            <section id="featured" class="featured-section">
+                <h2>Featured Novel</h2>
+                <div class="featured-card">
+                    <div class="card-inner">
+                        <!-- Front Side -->
+                        <div class="card-front">
+                            <img src="../asset/image/the-one/theone.jpeg" alt="The One Novel Thumbnail" class="featured-thumbnail">
+                            <div class="featured-info">
+                                <h3 class="featured-title">The One</h3>
+                                <p class="featured-author">By Kuruiya</p>
+                                <p class="featured-description">A story of power, loss, and redemption. Dive into the world of "The One" and experience a story that will stay with you forever.</p>
+                            </div>
+                        </div>
+                        <!-- Back Side -->
+                        <div class="card-back">
+                            <a href="1.html" class="btn-read">Read Now</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <!-- Back Side -->
-            <div class="card-back">
-                <a href="1.html" class="btn-read">Read Now</a>
-            </div>
-        </div>
-    </div>
-</section>
+            </section>
+
             <!-- Novels Grid Section -->
             <section id="novels" class="video-grid">
                 <h2>All Novels</h2>
                 <div class="grid-container">
-                    <!-- Video 1 -->
+                    <!-- Novel 1 -->
                     <a href="1.html" class="video-card" aria-label="View The One by Kuruiya">
                         <img src="../asset/image/the-one/theone.jpeg" alt="The One Novel Thumbnail" class="video-thumbnail">
                         <div class="video-info">
@@ -61,8 +64,8 @@
                             <p class="video-description">A story of shame and destiny.</p>
                         </div>
                     </a>
-                    <!-- Video 2 -->
-                      <a href="1.html" class="video-card" aria-label="View The One by Kuruiya">
+                    <!-- Novel 2 -->
+                    <a href="1.html" class="video-card" aria-label="View The One by Kuruiya">
                         <img src="../asset/image/the-one/theone.jpeg" alt="The One Novel Thumbnail" class="video-thumbnail">
                         <div class="video-info">
                             <h3 class="video-title">The One</h3>
@@ -70,55 +73,55 @@
                             <p class="video-description">A story of shame and destiny.</p>
                         </div>
                     </a>
-                    <!-- Add more video cards here as needed -->
+                    <!-- Add more novels as needed -->
                 </div>
             </section>
-<!-- Reviews Section -->
-<section id="reviews" class="reviews-section">
-    <h2>รีวิวจากผู้อ่าน</h2>
-    <div class="review-card">
-        <p>"นิยายของ Kuruiya ทำให้ฉันรู้สึกเหมือนอยู่ในโลกอีกใบ!" - ผู้อ่านคนหนึ่ง</p>
-    </div>
-    <div class="review-card">
-        <p>"การเล่าเรื่องที่น่าหลงใหลและตัวละครที่มีชีวิตชีวา!" - ผู้อ่านอีกคน</p>
-    </div>
-    <a href="#contact" class="btn-submit">ส่งรีวิวของคุณ</a>
-</section>
 
-<!-- Blog Section -->
-<section id="blog" class="blog-section">
-    <h2>บล็อกและข่าวสาร</h2>
-    <article class="blog-post">
-        <h3><a href="blog-post-1.html">การเขียนนิยาย:ถ้ามีฟีลก็จะเขียน</a></h3>
-        <p>บทที่ 11-12 จะมาให้อ่านพรุ่งนี้ ซึ่งจะจบพาร์ทของอลิซแล้ว</p>
-    </article>
-    <article class="blog-post">
-        <p>นิยายใหม่ที่กำลังจะมา:The one บทที่ 11-12 6 กุมภาพันธ์ 2025</p>
-        <p>พบกับสิ่งไม่ชอบมาพากลต่าง ๆ ที่ทำให้ริวต้องเอาตัวรอดในสถานที่ที่ไม่คุ้นตา</p>
-    </article>
-</section>
+            <!-- Reviews Section -->
+            <section id="reviews" class="reviews-section">
+                <h2>รีวิวจากผู้อ่าน</h2>
+                <div class="review-card">
+                    <p>"นิยายของ Kuruiya ทำให้ฉันรู้สึกเหมือนอยู่ในโลกอีกใบ!" - ผู้อ่านคนหนึ่ง</p>
+                </div>
+                <div class="review-card">
+                    <p>"การเล่าเรื่องที่น่าหลงใหลและตัวละครที่มีชีวิตชีวา!" - ผู้อ่านอีกคน</p>
+                </div>
+                <a href="#contact" class="btn-submit">ส่งรีวิวของคุณ</a>
+            </section>
 
-<!-- Gallery Section -->
-<section id="gallery" class="gallery-section">
-    <h2>แกลเลอรี</h2>
-    <div class="gallery-grid">
-        <img src="../asset/image/gallery/image1.jpg" alt="Artwork 1">
-        <img src="../asset/image/gallery/image2.jpg" alt="Artwork 2">
-        <img src="../asset/image/gallery/image3.jpg" alt="Artwork 3">
-        <!-- เพิ่มภาพอื่น ๆ ตามต้องการ -->
-    </div>
-</section>
+            <!-- Blog Section -->
+            <section id="blog" class="blog-section">
+                <h2>บล็อกและข่าวสาร</h2>
+                <article class="blog-post">
+                    <h3><a href="blog-post-1.html">การเขียนนิยาย: ถ้ามีฟีลก็จะเขียน</a></h3>
+                    <p>บทที่ 11-12 จะมาให้อ่านพรุ่งนี้ ซึ่งจะจบพาร์ทของอลิซแล้ว</p>
+                </article>
+                <article class="blog-post">
+                    <p>นิยายใหม่ที่กำลังจะมา: The One บทที่ 11-12 6 กุมภาพันธ์ 2025</p>
+                    <p>พบกับสิ่งไม่ชอบมาพากลต่าง ๆ ที่ทำให้ริวต้องเอาตัวรอดในสถานที่ที่ไม่คุ้นตา</p>
+                </article>
+            </section>
 
-<!-- FAQ Section -->
-<section id="faq" class="faq-section">
-    <h2>คำถามที่พบบ่อย (FAQ)</h2>
-    <div class="faq-item">
-        <h3>Q: นิยายของคุณมีแนวไหนบ้าง?</h3>
-        <p>A: นิยายของฉันมีหลากหลายแนว เช่น โรแมนติก, แฟนตาซี, และดราม่า...</p>
-    </div>
-    <!-- เพิ่มคำถามอื่น ๆ ตามต้องการ -->
-</section>
+            <!-- Gallery Section -->
+            <section id="gallery" class="gallery-section">
+                <h2>แกลเลอรี</h2>
+                <div class="gallery-grid">
+                    <img src="../asset/image/gallery/image1.jpg" alt="Artwork 1">
+                    <img src="../asset/image/gallery/image2.jpg" alt="Artwork 2">
+                    <img src="../asset/image/gallery/image3.jpg" alt="Artwork 3">
+                    <!-- Add more images as needed -->
+                </div>
+            </section>
 
+            <!-- FAQ Section -->
+            <section id="faq" class="faq-section">
+                <h2>คำถามที่พบบ่อย (FAQ)</h2>
+                <div class="faq-item">
+                    <h3>Q: นิยายของคุณมีแนวไหนบ้าง?</h3>
+                    <p>A: นิยายของฉันมีหลากหลายแนว เช่น โรแมนติก, แฟนตาซี, และดราม่า...</p>
+                </div>
+                <!-- Add more FAQs as needed -->
+            </section>
 
             <!-- About Section -->
             <section id="about" class="about-section">
@@ -151,5 +154,12 @@
             <p>&copy; 2023 Kuruiya. All rights reserved.</p>
         </footer>
     </div>
+
+    <!-- JavaScript for Flip Card -->
+    <script>
+        document.querySelector('.featured-card').addEventListener('click', function () {
+            this.querySelector('.card-inner').classList.toggle('flipped');
+        });
+    </script>
 </body>
 </html>
