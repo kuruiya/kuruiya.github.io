@@ -5,53 +5,50 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Noto Serif Thai', serif;
-    line-height: 1.6;
-    background-color: #f9f9f9; /* สีพื้นหลัง */
-    color: #333; /* สีตัวอักษร */
+/* Variables for Colors and Font Sizes */
+:root {
+    --main-color: #8B5A2B; /* Dark brown */
+    --hover-color: #04AA6D; /* Green for hover */
+    --background-color: #f4e1d8; /* Light background */
+    --text-color: #333; /* Main text color */
+    --font-size-base: 16px;
+    --font-size-large: 1.8em;
+    --spacing-unit: 20px;
 }
 
-/* Variables for Colors */
-:root {
-    --main-color: #8B5A2B; /* สีน้ำตาลเข้ม */
-    --hover-color: #04AA6D; /* สีสำหรับ hover */
-    --background-color: #f4e1d8; /* สีพื้นหลังของส่วนต่าง ๆ */
+body {
+    font-family: 'Noto Serif Thai', serif;
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: var(--text-color);
 }
 
 /* Navbar Styles */
 .navbar {
     display: flex;
-    justify-content: space-between; /* จัดตำแหน่งให้มีพื้นที่ระหว่างลิงก์ */
-    align-items: center; /* จัดแนวกลางในแนวตั้ง */
-    padding: 14px 20px; /* ระยะห่างภายใน */
-    background-color: var(--main-color); /* ใช้ตัวแปรสีหลัก */
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px var(--spacing-unit);
+    background-color: var(--main-color);
 }
 
 .navbar a {
-    display: block;
-    color: white; /* สีตัวอักษรในลิงก์ */
-    text-align: center;
+    color: white;
     padding: 14px 16px;
-    text-decoration: none; /* ไม่มีขีดเส้นใต้ */
-    transition: background-color 0.3s ease, color 0.3s ease; /* เอฟเฟกต์ transition */
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Active Link */
-.navbar a.active {
-    background-color: var(--hover-color); /* สีสำหรับลิงก์ที่ใช้งานอยู่ */
-}
-
-/* Hover Effect */
-.navbar a:hover {
-    background-color: #ddd; /* สีเมื่อวางเมาส์ */
-    color: black; /* เปลี่ยนสีตัวอักษรเมื่อวางเมาส์ */
+.navbar a.active, .navbar a:hover {
+    background-color: var(--hover-color);
+    color: black;
 }
 
 /* Featured Section */
 .featured-section {
-    background-color: var(--background-color); /* สีพื้นหลังของส่วน Featured */
-    padding: 20px;
+    background-color: var(--background-color);
+    padding: var(--spacing-unit);
     border-radius: 8px;
 }
 
@@ -61,76 +58,74 @@ body {
 }
 
 .featured-thumbnail {
-    width: 150px; /* ขนาดภาพ thumbnail */
+    width: 150px;
     height: auto;
     border-radius: 8px;
 }
 
 .featured-info {
-    margin-left: 20px;
+    margin-left: var(--spacing-unit);
 }
 
 .featured-title {
-    font-size: 1.8em;
+    font-size: var(--font-size-large);
 }
 
-/* Button Styles with Hover Effect and Transition */
+/* Button Styles */
 .btn-read {
     background-color: var(--main-color);
     color: #fff;
     padding: 10px 15px;
     text-decoration: none;
     border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Transition for button effects */
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .btn-read:hover {
     background-color: var(--hover-color);
-    transform: scale(1.05); /* เพิ่มขนาดเมื่อ hover */
+    transform: scale(1.05);
 }
 
-/* Responsive Styles for Mobile */
-@media screen and (max-width: 600px) {
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
     .navbar {
-        flex-direction: column; /* เปลี่ยนเป็นแนวตั้งในมือถือ */
-        width: 100%; /* ให้เต็มความกว้าง */
-        position: absolute; /* ทำให้เมนูอยู่เหนือเนื้อหา */
-        top: 60px; /* ระยะห่างจากด้านบนของหน้า */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px;
         left: 0;
-        display: none; /* ซ่อนเมนูเริ่มต้น */
-        background-color: var(--main-color); /* สีน้ำตาลเข้ม */
-        z-index: 1; /* ให้เมนูอยู่ด้านบนสุด */
+        display: none;
+        background-color: var(--main-color);
+        z-index: 1;
     }
 
     .navbar.responsive {
-        display: flex; /* แสดงเมนูเมื่อมีการคลิกไอคอน */
+        display: flex;
     }
 
     .navbar a {
-        float: none; /* ปรับให้แสดงในแนวตั้ง */
-        text-align: left; /* จัดแนวซ้าย */
-        padding-left: 20px; /* ระยะห่างด้านซ้ายสำหรับลิงก์ในมือถือ */
-        padding-right: 20px; /* ระยะห่างด้านขวาสำหรับลิงก์ในมือถือ */
+        text-align: left;
+        padding: 10px var(--spacing-unit);
     }
 
     .navbar .icon {
-        display: block; /* แสดงไอคอนสำหรับเปิด/ปิดเมนูในมือถือ */
-        float: right; /* ให้ไอคอนอยู่ทางขวา */
-        font-size: 24px; /* ขนาดไอคอนใหญ่ขึ้น */
-        cursor: pointer; /* เปลี่ยนเคอร์เซอร์เป็นมือเมื่อชี้ไปที่ไอคอน */
+        display: block;
+        float: right;
+        font-size: 24px;
+        cursor: pointer;
     }
 }
 
-/* Card Styles with Shadow and Hover Effect for Novels Grid Section */
+/* Card Styles */
 .video-card {
-    background-color: #fff; 
+    background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     overflow: hidden;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .video-card:hover {
-   box-shadow: 0 4px 10px rgba(0,0,0,0.2); 
-   transform: translateY(-5px); /* ยกการ์ดขึ้นเล็กน้อยเมื่อ hover */ 
-   transition-duration : .3s ; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transform: translateY(-5px);
 }
