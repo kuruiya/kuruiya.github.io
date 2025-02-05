@@ -1,14 +1,7 @@
-/* Global Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 /* Body Styles */
 body {
     font-family: 'Noto Serif Thai', serif;
-    background-color: #f4f4f4;
+    background-color: #e6f7ff; /* สีฟ้าอ่อน */
     color: #333;
     line-height: 1.6;
     padding: 20px;
@@ -27,7 +20,7 @@ body.dark-mode {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: #ffffff; /* สีขาว */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
     transition: background-color 0.3s;
@@ -45,7 +38,7 @@ header {
 
 header h1 {
     font-size: 2rem;
-    color: #5cb85c;
+    color: #5cb85c; /* สีเขียวสด */
     font-weight: 700;
 }
 
@@ -71,7 +64,7 @@ header p {
 
 .search-bar button {
     padding: 10px 20px;
-    background-color: #5cb85c;
+    background-color: #5cb85c; /* สีเขียวสด */
     color: white;
     border: none;
     border-radius: 0 6px 6px 0;
@@ -80,7 +73,7 @@ header p {
 }
 
 .search-bar button:hover {
-    background-color: #4cae4c;
+    background-color: #4cae4c; /* สีเขียวเข้ม */
 }
 
 /* Content */
@@ -90,7 +83,7 @@ header p {
 
 .content h2 {
     font-size: 1.5rem;
-    color: #5cb85c;
+    color: #5cb85c; /* สีเขียวสด */
     margin-bottom: 15px;
 }
 
@@ -101,7 +94,7 @@ header p {
 }
 
 .highlight {
-    background-color: yellow;
+    background-color: #ffff99; /* สีเหลืองอ่อน */
     color: black;
 }
 
@@ -116,7 +109,7 @@ header p {
 
 .controls button {
     padding: 10px 20px;
-    background-color: #5cb85c;
+    background-color: #5cb85c; /* สีเขียวสด */
     color: white;
     border: none;
     border-radius: 6px;
@@ -126,7 +119,7 @@ header p {
 }
 
 .controls button:hover {
-    background-color: #4cae4c;
+    background-color: #4cae4c; /* สีเขียวเข้ม */
 }
 
 /* Social Share Buttons */
@@ -140,7 +133,7 @@ header p {
 
 .social-share button {
     padding: 10px 20px;
-    background-color: #333;
+    background-color: #007bff; /* สีฟ้า */
     color: white;
     border: none;
     border-radius: 6px;
@@ -150,7 +143,7 @@ header p {
 }
 
 .social-share button:hover {
-    background-color: #555;
+    background-color: #0056b3; /* สีฟ้าเข้ม */
 }
 
 /* Text-to-Speech Controls */
@@ -164,7 +157,7 @@ header p {
 
 .text-to-speech button {
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #ff6f61; /* สีส้มอ่อน */
     color: white;
     border: none;
     border-radius: 6px;
@@ -174,7 +167,7 @@ header p {
 }
 
 .text-to-speech button:hover {
-    background-color: #0056b3;
+    background-color: #ff4a3d; /* สีส้มเข้ม */
 }
 
 /* Dark Mode Toggle */
