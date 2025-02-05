@@ -2,8 +2,8 @@
 body {
   font-family: 'Noto Serif Thai', serif;
   margin: 0;
-  background-color: #f8f8f8; /* สีพื้นหลังอ่อน */
-  color: #333; /* สีตัวอักษรเข้ม */
+  background-color: #f5f5dc; /* สีเบจ */
+  color: #333; /* สีน้ำตาลเข้ม */
   line-height: 1.6;
 }
 
@@ -45,7 +45,7 @@ nav a:hover {
 section {
   margin-bottom: 20px;
   padding: 20px;
-  background-color: #fff;
+  background-color: #fff8dc; /* สีขาวนวล */
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
