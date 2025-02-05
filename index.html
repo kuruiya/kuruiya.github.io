@@ -16,7 +16,12 @@
         <header>
             <h1>Kuruiya the Collection</h1>
             <p>All of My Novels</p>
-            <nav>
+            <!-- Compass Icon -->
+            <div class="compass-icon" id="compassIcon">
+                <i class="fas fa-compass"></i>
+            </div>
+            <!-- Navigation Bar -->
+            <nav id="navBar">
                 <ul>
                     <li><a href="#featured">Featured</a></li>
                     <li><a href="#novels">Novels</a></li>
@@ -146,26 +151,15 @@
         </footer>
     </div>
 
-    <!-- JavaScript for Smooth Scrolling and Dynamic Year -->
+    <!-- JavaScript for Compass Icon, Navigation Toggle, and Dynamic Year -->
     <script>
-        // Smooth scrolling with offset for fixed header
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+        // Toggle navigation bar visibility
+        const compassIcon = document.getElementById('compassIcon');
+        const navBar = document.getElementById('navBar');
 
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-
-                if (targetElement) {
-                    const offset = 80; // Adjust this value to match your header height
-                    const targetPosition = targetElement.offsetTop - offset;
-
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
+        compassIcon.addEventListener('click', () => {
+            navBar.classList.toggle('active');
+            compassIcon.classList.toggle('active');
         });
 
         // Dynamic year for footer
