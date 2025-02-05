@@ -37,6 +37,10 @@ header {
     padding: var(--spacing-unit) 0;
     background-color: var(--main-color);
     color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 header h1 {
@@ -64,6 +68,7 @@ header nav ul li a {
     transition: color 0.3s ease;
 }
 
+/* Slide Animation for Navigation Links */
 header nav ul li a::after {
     content: '';
     position: absolute;
@@ -74,7 +79,7 @@ header nav ul li a::after {
     background: linear-gradient(90deg, var(--hover-color), var(--main-color));
     transform: scaleX(0);
     transform-origin: right;
-    transition: transform 0.3s ease, transform-origin 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 header nav ul li a:hover::after {
@@ -84,7 +89,7 @@ header nav ul li a:hover::after {
 
 /* Main Content Section */
 main {
-    padding: var(--spacing-unit) 0;
+    padding-top: 150px; /* Adjust for fixed header */
 }
 
 /* Featured Section */
