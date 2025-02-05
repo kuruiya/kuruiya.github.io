@@ -170,23 +170,38 @@ header p {
     background-color: #ff4a3d; /* สีส้มเข้ม */
 }
 
-/* Dark Mode Toggle */
-.dark-mode-toggle {
-    display: block;
-    width: 100%;
-    padding: 10px 20px;
-    background-color: #333;
-    color: white;
-    border: none;
-    border-radius: 6px;
+.light-switch {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 15px;
     cursor: pointer;
     transition: background-color 0.3s;
-    font-size: 1rem;
-    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.dark-mode-toggle:hover {
-    background-color: #555;
+.switch-handle {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 24px;
+    height: 24px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s, background-color 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .light-switch {
+    background-color: #4c4c4c;
+}
+
+body.dark-mode .switch-handle {
+    transform: translateX(30px);
+    background-color: #333;
 }
 
 /* Footer */
