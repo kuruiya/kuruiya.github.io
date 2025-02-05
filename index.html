@@ -9,7 +9,7 @@
     <meta name="description" content="Explore all of Kuruiya's collection in one place.">
     <style>
         /* Add the full CSS here (provided below) */
-        /* Basic Reset */
+         /* Basic Reset */
 * {
     margin: 0;
     padding: 0;
@@ -93,6 +93,7 @@ header nav ul li a:hover {
     width: 100%;
     max-width: 400px; /* Adjust as needed */
     margin: 0 auto;
+    cursor: pointer;
 }
 
 .card-inner {
@@ -103,7 +104,7 @@ header nav ul li a:hover {
     transform-style: preserve-3d; /* Ensures the back side is hidden initially */
 }
 
-.featured-card.flipped .card-inner {
+.card-inner.flipped {
     transform: rotateY(180deg); /* Flip the card when the class is added */
 }
 
@@ -173,247 +174,6 @@ header nav ul li a:hover {
     background-color: #8B4513;
 }
 
-/* Novels Grid Section */
-.video-grid {
-    margin-bottom: var(--spacing-unit);
-}
-
-.video-grid h2 {
-    margin-bottom: var(--spacing-unit);
-}
-
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--spacing-unit);
-}
-
-.video-card {
-    background-color: var(--main-color);
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-    color: white;
-}
-
-.video-card:hover {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transform: translateY(-5px);
-}
-
-.video-thumbnail {
-    width: 100%;
-    height: auto;
-}
-
-.video-info {
-    padding: var(--spacing-unit);
-}
-
-.video-title {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-}
-
-.video-author {
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-.video-description {
-    font-size: 0.9em;
-}
-
-/* Reviews Section */
-.reviews-section {
-    background-color: var(--main-color);
-    padding: var(--spacing-unit);
-    border-radius: 8px;
-    margin-bottom: var(--spacing-unit);
-    color: white;
-}
-
-.reviews-section h2 {
-    margin-bottom: var(--spacing-unit);
-}
-
-.review-card {
-    background-color: var(--hover-color);
-    padding: var(--spacing-unit);
-    border-radius: 8px;
-    margin-bottom: var(--spacing-unit);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.review-card p {
-    font-style: italic;
-}
-
-.btn-submit {
-    display: inline-block;
-    background-color: var(--hover-color);
-    color: white;
-    padding: 10px 15px;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.btn-submit:hover {
-    background-color: #8B4513;
-}
-
-/* Blog Section */
-.blog-section {
-    margin-bottom: var(--spacing-unit);
-}
-
-.blog-section h2 {
-    margin-bottom: var(--spacing-unit);
-}
-
-.blog-post {
-    background-color: var(--main-color);
-    padding: var(--spacing-unit);
-    border-radius: 8px;
-    margin-bottom: var(--spacing-unit);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    color: white;
-}
-
-.blog-post h3 {
-    margin-bottom: 10px;
-}
-
-.blog-post p {
-    font-size: 0.9em;
-}
-
-/* Gallery Section */
-.gallery-section {
-    margin-bottom: var(--spacing-unit);
-}
-
-.gallery-section h2 {
-    margin-bottom: var(--spacing-unit);
-}
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--spacing-unit);
-}
-
-.gallery-grid img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
-/* FAQ Section */
-.faq-section {
-    margin-bottom: var(--spacing-unit);
-}
-
-.faq-section h2 {
-    margin-bottom: var(--spacing-unit);
-}
-
-.faq-item {
-    background-color: var(--main-color);
-    padding: var(--spacing-unit);
-    border-radius: 8px;
-    margin-bottom: var(--spacing-unit);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    color: white;
-}
-
-.faq-item h3 {
-    margin-bottom: 10px;
-}
-
-.faq-item p {
-    font-size: 0.9em;
-}
-
-/* About Section */
-.about-section {
-    margin-bottom: var(--spacing-unit);
-}
-
-.about-section h2 {
-    margin-bottom: var(--spacing-unit);
-}
-
-.about-section p {
-    font-size: 0.9em;
-}
-
-/* Contact Section */
-.contact-section {
-    margin-bottom: var(--spacing-unit);
-}
-
-.contact-section h2 {
-    margin-bottom: var(--spacing-unit);
-}
-
-.contact-section form {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-unit);
-}
-
-.contact-section label {
-    font-weight: 600;
-}
-
-.contact-section input,
-.contact-section textarea {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1em;
-}
-
-.contact-section button {
-    background-color: var(--hover-color);
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.contact-section button:hover {
-    background-color: #8B4513;
-}
-
-/* Footer Section */
-footer {
-    text-align: center;
-    padding: var(--spacing-unit) 0;
-    background-color: var(--main-color);
-    color: white;
-}
-
-.social-links {
-    margin-bottom: var(--spacing-unit);
-}
-
-.social-links a {
-    color: white;
-    margin: 0 10px;
-    font-size: 1.5em;
-    transition: color 0.3s ease;
-}
-
-.social-links a:hover {
-    color: var(--hover-color);
-}
-
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
     header nav ul {
@@ -424,10 +184,6 @@ footer {
     .featured-card {
         flex-direction: column;
         text-align: center;
-    }
-
-    .grid-container {
-        grid-template-columns: 1fr;
     }
 }
     </style>
@@ -441,7 +197,7 @@ footer {
             <nav>
                 <ul>
                     <li><a href="#featured">Featured</a></li>
-                    <li><a href#novels">Novels</a></li>
+                    <li><a href="#novels">Novels</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -453,7 +209,7 @@ footer {
             <!-- Featured Section -->
             <section id="featured" class="featured-section">
                 <h2>Featured Novel</h2>
-                <div class="featured-card">
+                <div class="featured-card" onclick="flipCard()">
                     <div class="card-inner">
                         <!-- Front Side -->
                         <div class="card-front">
@@ -472,97 +228,8 @@ footer {
                 </div>
             </section>
 
-            <!-- Novels Grid Section -->
-            <section id="novels" class="video-grid">
-                <h2>All Novels</h2>
-                <div class="grid-container">
-                    <!-- Novel 1 -->
-                    <a href="1.html" class="video-card" aria-label="View The One by Kuruiya">
-                        <img src="../asset/image/the-one/theone.jpeg" alt="The One Novel Thumbnail" class="video-thumbnail">
-                        <div class="video-info">
-                            <h3 class="video-title">The One</h3>
-                            <p class="video-author">By Kuruiya</p>
-                            <p class="video-description">A story of shame and destiny.</p>
-                        </div>
-                    </a>
-                    <!-- Novel 2 -->
-                    <a href="1.html" class="video-card" aria-label="View The One by Kuruiya">
-                        <img src="../asset/image/the-one/theone.jpeg" alt="The One Novel Thumbnail" class="video-thumbnail">
-                        <div class="video-info">
-                            <h3 class="video-title">The One</h3>
-                            <p class="video-author">By Kuruiya</p>
-                            <p class="video-description">A story of shame and destiny.</p>
-                        </div>
-                    </a>
-                    <!-- Add more novels as needed -->
-                </div>
-            </section>
-
-            <!-- Reviews Section -->
-            <section id="reviews" class="reviews-section">
-                <h2>รีวิวจากผู้อ่าน</h2>
-                <div class="review-card">
-                    <p>"นิยายของ Kuruiya ทำให้ฉันรู้สึกเหมือนอยู่ในโลกอีกใบ!" - ผู้อ่านคนหนึ่ง</p>
-                </div>
-                <div class="review-card">
-                    <p>"การเล่าเรื่องที่น่าหลงใหลและตัวละครที่มีชีวิตชีวา!" - ผู้อ่านอีกคน</p>
-                </div>
-                <a href="#contact" class="btn-submit">ส่งรีวิวของคุณ</a>
-            </section>
-
-            <!-- Blog Section -->
-            <section id="blog" class="blog-section">
-                <h2>บล็อกและข่าวสาร</h2>
-                <article class="blog-post">
-                    <h3><a href="blog-post-1.html">การเขียนนิยาย: ถ้ามีฟีลก็จะเขียน</a></h3>
-                    <p>บทที่ 11-12 จะมาให้อ่านพรุ่งนี้ ซึ่งจะจบพาร์ทของอลิซแล้ว</p>
-                </article>
-                <article class="blog-post">
-                    <p>นิยายใหม่ที่กำลังจะมา: The One บทที่ 11-12 6 กุมภาพันธ์ 2025</p>
-                    <p>พบกับสิ่งไม่ชอบมาพากลต่าง ๆ ที่ทำให้ริวต้องเอาตัวรอดในสถานที่ที่ไม่คุ้นตา</p>
-                </article>
-            </section>
-
-            <!-- Gallery Section -->
-            <section id="gallery" class="gallery-section">
-                <h2>แกลเลอรี</h2>
-                <div class="gallery-grid">
-                    <img src="../asset/image/gallery/image1.jpg" alt="Artwork 1">
-                    <img src="../asset/image/gallery/image2.jpg" alt="Artwork 2">
-                    <img src="../asset/image/gallery/image3.jpg" alt="Artwork 3">
-                    <!-- Add more images as needed -->
-                </div>
-            </section>
-
-            <!-- FAQ Section -->
-            <section id="faq" class="faq-section">
-                <h2>คำถามที่พบบ่อย (FAQ)</h2>
-                <div class="faq-item">
-                    <h3>Q: นิยายของคุณมีแนวไหนบ้าง?</h3>
-                    <p>A: นิยายของฉันมีหลากหลายแนว เช่น โรแมนติก, แฟนตาซี, และดราม่า...</p>
-                </div>
-                <!-- Add more FAQs as needed -->
-            </section>
-
-            <!-- About Section -->
-            <section id="about" class="about-section">
-                <h2>About Kuruiya</h2>
-                <p>Kuruiya is a passionate writer who creates captivating stories that resonate with readers. With a unique storytelling style, Kuruiya brings characters and worlds to life.</p>
-            </section>
-
-            <!-- Contact Section -->
-            <section id="contact" class="contact-section">
-                <h2>Contact Me</h2>
-                <form action="#" method="post">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                    <button type="submit" class="btn-submit">Send Message</button>
-                </form>
-            </section>
+            <!-- Other Sections (Novels, Reviews, Blog, Gallery, FAQ, About, Contact) -->
+            <!-- Add the rest of your sections here -->
         </main>
 
         <!-- Footer Section -->
@@ -578,9 +245,10 @@ footer {
 
     <!-- JavaScript for Flip Card -->
     <script>
-        document.querySelector('.featured-card').addEventListener('click', function () {
-            this.querySelector('.card-inner').classList.toggle('flipped');
-        });
+        function flipCard() {
+            const cardInner = document.querySelector('.card-inner');
+            cardInner.classList.toggle('flipped');
+        }
     </script>
 </body>
 </html>
