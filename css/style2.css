@@ -12,6 +12,66 @@ body {
     color: #333; /* สีตัวอักษร */
 }
 
+/* Navbar Styles */
+.navbar {
+    overflow: hidden;
+    background-color: #8B5A2B; /* สีน้ำตาลเข้ม */
+    display: flex;
+    justify-content: space-between; /* จัดตำแหน่งให้มีพื้นที่ระหว่างลิงก์ */
+    align-items: center; /* จัดแนวกลางในแนวตั้ง */
+    padding: 14px 20px; /* ระยะห่างภายใน */
+}
+
+.navbar a {
+    display: block;
+    color: white; /* สีตัวอักษรในลิงก์ */
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none; /* ไม่มีขีดเส้นใต้ */
+}
+
+/* Active Link */
+.navbar a.active {
+    background-color: #04AA6D; /* สีสำหรับลิงก์ที่ใช้งานอยู่ */
+}
+
+/* Hover Effect */
+.navbar a:hover {
+    background-color: #ddd; /* สีเมื่อวางเมาส์ */
+    color: black; /* เปลี่ยนสีตัวอักษรเมื่อวางเมาส์ */
+}
+
+/* Responsive Styles for Mobile */
+@media screen and (max-width: 600px) {
+    .navbar {
+        flex-direction: column; /* เปลี่ยนเป็นแนวตั้งในมือถือ */
+        width: 100%; /* ให้เต็มความกว้าง */
+        position: absolute; /* ทำให้เมนูอยู่เหนือเนื้อหา */
+        top: 60px; /* ระยะห่างจากด้านบนของหน้า */
+        left: 0;
+        display: none; /* ซ่อนเมนูเริ่มต้น */
+        background-color: #8B5A2B; /* สีน้ำตาลเข้ม */
+        z-index: 1; /* ให้เมนูอยู่ด้านบนสุด */
+    }
+
+    .navbar.responsive {
+        display: flex; /* แสดงเมนูเมื่อมีการคลิกไอคอน */
+    }
+
+    .navbar a {
+        float: none; /* ปรับให้แสดงในแนวตั้ง */
+        text-align: left; /* จัดแนวซ้าย */
+        padding-left: 20px; /* ระยะห่างด้านซ้ายสำหรับลิงก์ในมือถือ */
+        padding-right: 20px; /* ระยะห่างด้านขวาสำหรับลิงก์ในมือถือ */
+    }
+
+    .navbar .icon {
+        display: block; /* แสดงไอคอนสำหรับเปิด/ปิดเมนูในมือถือ */
+        float: right; /* ให้ไอคอนอยู่ทางขวา */
+        font-size: 24px; /* ขนาดไอคอนใหญ่ขึ้น */
+        cursor: pointer; /* เปลี่ยนเคอร์เซอร์เป็นมือเมื่อชี้ไปที่ไอคอน */
+    }
+}
 /* Container */
 .container {
     max-width: 1200px;
