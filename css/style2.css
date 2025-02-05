@@ -1,4 +1,4 @@
-/* Reset some default styles */
+/* Basic Reset */
 * {
     margin: 0;
     padding: 0;
@@ -12,14 +12,20 @@ body {
     color: #333; /* สีตัวอักษร */
 }
 
+/* Variables for Colors */
+:root {
+    --main-color: #8B5A2B; /* สีน้ำตาลเข้ม */
+    --hover-color: #04AA6D; /* สีสำหรับ hover */
+    --background-color: #f4e1d8; /* สีพื้นหลังของส่วนต่าง ๆ */
+}
+
 /* Navbar Styles */
 .navbar {
-    overflow: hidden;
-    background-color: #8B5A2B; /* สีน้ำตาลเข้ม */
     display: flex;
     justify-content: space-between; /* จัดตำแหน่งให้มีพื้นที่ระหว่างลิงก์ */
     align-items: center; /* จัดแนวกลางในแนวตั้ง */
     padding: 14px 20px; /* ระยะห่างภายใน */
+    background-color: var(--main-color); /* ใช้ตัวแปรสีหลัก */
 }
 
 .navbar a {
@@ -28,11 +34,12 @@ body {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none; /* ไม่มีขีดเส้นใต้ */
+    transition: background-color 0.3s ease, color 0.3s ease; /* เอฟเฟกต์ transition */
 }
 
 /* Active Link */
 .navbar a.active {
-    background-color: #04AA6D; /* สีสำหรับลิงก์ที่ใช้งานอยู่ */
+    background-color: var(--hover-color); /* สีสำหรับลิงก์ที่ใช้งานอยู่ */
 }
 
 /* Hover Effect */
@@ -41,78 +48,9 @@ body {
     color: black; /* เปลี่ยนสีตัวอักษรเมื่อวางเมาส์ */
 }
 
-/* Responsive Styles for Mobile */
-@media screen and (max-width: 600px) {
-    .navbar {
-        flex-direction: column; /* เปลี่ยนเป็นแนวตั้งในมือถือ */
-        width: 100%; /* ให้เต็มความกว้าง */
-        position: absolute; /* ทำให้เมนูอยู่เหนือเนื้อหา */
-        top: 60px; /* ระยะห่างจากด้านบนของหน้า */
-        left: 0;
-        display: none; /* ซ่อนเมนูเริ่มต้น */
-        background-color: #8B5A2B; /* สีน้ำตาลเข้ม */
-        z-index: 1; /* ให้เมนูอยู่ด้านบนสุด */
-    }
-
-    .navbar.responsive {
-        display: flex; /* แสดงเมนูเมื่อมีการคลิกไอคอน */
-    }
-
-    .navbar a {
-        float: none; /* ปรับให้แสดงในแนวตั้ง */
-        text-align: left; /* จัดแนวซ้าย */
-        padding-left: 20px; /* ระยะห่างด้านซ้ายสำหรับลิงก์ในมือถือ */
-        padding-right: 20px; /* ระยะห่างด้านขวาสำหรับลิงก์ในมือถือ */
-    }
-
-    .navbar .icon {
-        display: block; /* แสดงไอคอนสำหรับเปิด/ปิดเมนูในมือถือ */
-        float: right; /* ให้ไอคอนอยู่ทางขวา */
-        font-size: 24px; /* ขนาดไอคอนใหญ่ขึ้น */
-        cursor: pointer; /* เปลี่ยนเคอร์เซอร์เป็นมือเมื่อชี้ไปที่ไอคอน */
-    }
-}
-/* Container */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* Header */
-header {
-    background-color: #8B5A2B; /* สีน้ำตาลเข้ม */
-    color: #fff; /* สีตัวอักษรใน header */
-    padding: 20px;
-    text-align: center;
-}
-
-header h1 {
-    font-size: 2.5em;
-}
-
-header nav ul {
-    list-style-type: none;
-}
-
-header nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-
-header nav ul li a {
-    color: #fff; /* สีลิงก์ใน header */
-    text-decoration: none;
-}
-
-/* Main Content */
-main {
-    padding: 20px;
-}
-
 /* Featured Section */
 .featured-section {
-    background-color: #f4e1d8; /* สีพื้นหลังของส่วน Featured */
+    background-color: var(--background-color); /* สีพื้นหลังของส่วน Featured */
     padding: 20px;
     border-radius: 8px;
 }
@@ -136,58 +74,63 @@ main {
     font-size: 1.8em;
 }
 
+/* Button Styles with Hover Effect and Transition */
 .btn-read {
-    background-color: #8B5A2B; /* สีน้ำตาลเข้ม */
-    color: #fff; /* สีตัวอักษรปุ่ม */
+    background-color: var(--main-color);
+    color: #fff;
     padding: 10px 15px;
     text-decoration: none;
     border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transition for button effects */
 }
 
-/* Novels Grid Section */
-.video-grid {
-    margin-top: 30px;
+.btn-read:hover {
+    background-color: var(--hover-color);
+    transform: scale(1.05); /* เพิ่มขนาดเมื่อ hover */
 }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px; /* ช่องว่างระหว่างการ์ด */
+/* Responsive Styles for Mobile */
+@media screen and (max-width: 600px) {
+    .navbar {
+        flex-direction: column; /* เปลี่ยนเป็นแนวตั้งในมือถือ */
+        width: 100%; /* ให้เต็มความกว้าง */
+        position: absolute; /* ทำให้เมนูอยู่เหนือเนื้อหา */
+        top: 60px; /* ระยะห่างจากด้านบนของหน้า */
+        left: 0;
+        display: none; /* ซ่อนเมนูเริ่มต้น */
+        background-color: var(--main-color); /* สีน้ำตาลเข้ม */
+        z-index: 1; /* ให้เมนูอยู่ด้านบนสุด */
+    }
+
+    .navbar.responsive {
+        display: flex; /* แสดงเมนูเมื่อมีการคลิกไอคอน */
+    }
+
+    .navbar a {
+        float: none; /* ปรับให้แสดงในแนวตั้ง */
+        text-align: left; /* จัดแนวซ้าย */
+        padding-left: 20px; /* ระยะห่างด้านซ้ายสำหรับลิงก์ในมือถือ */
+        padding-right: 20px; /* ระยะห่างด้านขวาสำหรับลิงก์ในมือถือ */
+    }
+
+    .navbar .icon {
+        display: block; /* แสดงไอคอนสำหรับเปิด/ปิดเมนูในมือถือ */
+        float: right; /* ให้ไอคอนอยู่ทางขวา */
+        font-size: 24px; /* ขนาดไอคอนใหญ่ขึ้น */
+        cursor: pointer; /* เปลี่ยนเคอร์เซอร์เป็นมือเมื่อชี้ไปที่ไอคอน */
+    }
 }
 
+/* Card Styles with Shadow and Hover Effect for Novels Grid Section */
 .video-card {
-    background-color: #fff; /* สีพื้นหลังของการ์ดนิยาย */
+    background-color: #fff; 
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    overflow: hidden; /* ป้องกันการแสดงผลที่เกินขอบการ์ด */
+    overflow: hidden;
 }
 
-.video-thumbnail {
-    width: 100%; /* ให้ภาพเต็มขนาดการ์ด */
-}
-
-.video-info {
-    padding: 10px;
-}
-
-.video-title {
-    font-size: 1.5em;
-}
-
-/* About Section */
-.about-section, .contact-section, .reviews-section, .blog-section, .newsletter-section, .gallery-section, .video-trailer-section, .faq-section {
-    margin-top: 40px;
-}
-
-/* Footer */
-footer {
-    background-color: #8B5A2B; /* สีน้ำตาลเข้ม */
-    color: #fff; /* สีตัวอักษรใน footer */
-    text-align: center;
-    padding: 20px;
-}
-
-.social-links a {
-    color: #fff; /* สีลิงก์ใน footer */
-    margin-right: 10px;
+.video-card:hover {
+   box-shadow: 0 4px 10px rgba(0,0,0,0.2); 
+   transform: translateY(-5px); /* ยกการ์ดขึ้นเล็กน้อยเมื่อ hover */ 
+   transition-duration : .3s ; 
 }
