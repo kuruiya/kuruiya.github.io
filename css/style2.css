@@ -1,131 +1,110 @@
-/* Basic Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Variables for Colors and Font Sizes */
-:root {
-    --main-color: #8B5A2B; /* Dark brown */
-    --hover-color: #04AA6D; /* Green for hover */
-    --background-color: #f4e1d8; /* Light background */
-    --text-color: #333; /* Main text color */
-    --font-size-base: 16px;
-    --font-size-large: 1.8em;
-    --spacing-unit: 20px;
-}
-
+/* Basic Styles */
 body {
     font-family: 'Noto Serif Thai', serif;
-    font-size: var(--font-size-base);
-    line-height: 1.6;
-    background-color: #f9f9f9;
-    color: var(--text-color);
-}
-
-/* Navbar Styles */
-.navbar {
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8; /* Light background color */
+    color: #333; /* Dark text color for contrast */
+    line-height: 1.6; /* Improved readability */
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 14px var(--spacing-unit);
-    background-color: var(--main-color);
+    flex-direction: column; /* Ensures footer sticks to bottom */
+    min-height: 100vh; /* Ensures body takes up full viewport height */
 }
 
-.navbar a {
-    color: white;
-    padding: 14px 16px;
-    text-decoration: none;
-    transition: background-color 0.3s ease, color 0.3s ease;
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+    flex: 1; /* Allows main content to expand and fill available space */
 }
 
-.navbar a.active, .navbar a:hover {
-    background-color: var(--hover-color);
-    color: black;
+/* Header Styles (if you still have a header) */
+header {
+    text-align: center;
+    padding: 40px 0;
+    background-color: #fff;
+    margin-bottom: 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Featured Section */
-.featured-section {
-    background-color: var(--background-color);
-    padding: var(--spacing-unit);
-    border-radius: 8px;
+/* Main Content Styles */
+main {
+    padding: 20px;
+    background-color: #f8f8f8; /* Match background color */
 }
 
+section {
+    margin-bottom: 30px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* Adapt Featured Card Styles */
 .featured-card {
-    display: flex;
-    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center; /* Center the content */
+    margin-bottom: 20px; /* Space below featured card */
 }
 
 .featured-thumbnail {
-    width: 150px;
+    max-width: 100%;
     height: auto;
-    border-radius: 8px;
-}
-
-.featured-info {
-    margin-left: var(--spacing-unit);
+    margin-bottom: 20px;
 }
 
 .featured-title {
-    font-size: var(--font-size-large);
+    margin-bottom: 10px;
 }
 
-/* Button Styles */
 .btn-read {
-    background-color: var(--main-color);
+    /* Style as before, adjust if needed */
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
     color: #fff;
-    padding: 10px 15px;
     text-decoration: none;
     border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.3s ease;
 }
 
-.btn-read:hover {
-    background-color: var(--hover-color);
-    transform: scale(1.05);
+/* Adapt Novels Grid Styles */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 20px;
 }
 
-/* Responsive Styles */
-@media screen and (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        display: none;
-        background-color: var(--main-color);
-        z-index: 1;
-    }
-
-    .navbar.responsive {
-        display: flex;
-    }
-
-    .navbar a {
-        text-align: left;
-        padding: 10px var(--spacing-unit);
-    }
-
-    .navbar .icon {
-        display: block;
-        float: right;
-        font-size: 24px;
-        cursor: pointer;
-    }
-}
-
-/* Card Styles */
 .video-card {
+    /* Style as before, adjust if needed */
+    display: block;
     background-color: #fff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     overflow: hidden;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.video-card:hover {
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    transform: translateY(-5px);
+/* Reviews, Blog, Gallery, FAQ Sections Styles (as before) */
+/* ... */
+
+/* About and Contact Sections Styles (as before) */
+/* ... */
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto; /* Push footer to bottom */
 }
+
+/* Responsive Design (Media Queries) */
+/* ... (adapt as needed for responsiveness) */
