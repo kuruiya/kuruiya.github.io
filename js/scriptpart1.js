@@ -301,10 +301,13 @@ function decreaseFontSize() {
     }
 }
 
-// Function to toggle dark mode
 function toggleDarkMode() {
     const body = document.body;
     body.classList.toggle('dark-mode');
+
+    // Play click sound
+    const clickSound = new Audio('click-sound.mp3'); // Add a click sound file
+    clickSound.play();
 }
 
 // Function to return to the main page
