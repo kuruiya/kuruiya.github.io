@@ -8,7 +8,7 @@
 /* Variables for Colors and Font Sizes */
 :root {
     --main-color: #8B5A2B; /* Dark brown */
-    --hover-color: #04AA6D; /* Green for hover */
+    --hover-color: #A0522D; /* Slightly lighter brown for hover */
     --background-color: #f5f5dc; /* Beige */
     --text-color: #333; /* Main text color */
     --font-size-base: 16px;
@@ -20,7 +20,7 @@ body {
     font-family: 'Noto Serif Thai', serif;
     font-size: var(--font-size-base);
     line-height: 1.6;
-    background-color: #f9f9f9;
+    background-color: var(--background-color); /* Use beige as the background */
     color: var(--text-color);
 }
 
@@ -74,10 +74,11 @@ main {
 
 /* Featured Section */
 .featured-section {
-    background-color: var(--background-color);
+    background-color: var(--main-color); /* Dark brown background */
     padding: var(--spacing-unit);
     border-radius: 8px;
     margin-bottom: var(--spacing-unit);
+    color: white; /* White text for contrast */
 }
 
 .featured-card {
@@ -110,6 +111,20 @@ main {
     margin-bottom: var(--spacing-unit);
 }
 
+.btn-read {
+    display: inline-block;
+    background-color: var(--hover-color); /* Lighter brown for the button */
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-read:hover {
+    background-color: #8B4513; /* Darker brown on hover */
+}
+
 /* Novels Grid Section */
 .video-grid {
     margin-bottom: var(--spacing-unit);
@@ -126,11 +141,12 @@ main {
 }
 
 .video-card {
-    background-color: #fff;
+    background-color: var(--main-color); /* Dark brown background */
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: box-shadow 0.3s ease, transform 0.3s ease;
+    color: white; /* White text for contrast */
 }
 
 .video-card:hover {
@@ -163,10 +179,11 @@ main {
 
 /* Reviews Section */
 .reviews-section {
-    background-color: var(--background-color);
+    background-color: var(--main-color); /* Dark brown background */
     padding: var(--spacing-unit);
     border-radius: 8px;
     margin-bottom: var(--spacing-unit);
+    color: white; /* White text for contrast */
 }
 
 .reviews-section h2 {
@@ -174,7 +191,7 @@ main {
 }
 
 .review-card {
-    background-color: #fff;
+    background-color: var(--hover-color); /* Lighter brown for cards */
     padding: var(--spacing-unit);
     border-radius: 8px;
     margin-bottom: var(--spacing-unit);
@@ -187,7 +204,7 @@ main {
 
 .btn-submit {
     display: inline-block;
-    background-color: var(--main-color);
+    background-color: var(--hover-color); /* Lighter brown for the button */
     color: white;
     padding: 10px 15px;
     text-decoration: none;
@@ -196,7 +213,7 @@ main {
 }
 
 .btn-submit:hover {
-    background-color: var(--hover-color);
+    background-color: #8B4513; /* Darker brown on hover */
 }
 
 /* Blog Section */
@@ -209,11 +226,12 @@ main {
 }
 
 .blog-post {
-    background-color: #fff;
+    background-color: var(--main-color); /* Dark brown background */
     padding: var(--spacing-unit);
     border-radius: 8px;
     margin-bottom: var(--spacing-unit);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: white; /* White text for contrast */
 }
 
 .blog-post h3 {
@@ -255,11 +273,12 @@ main {
 }
 
 .faq-item {
-    background-color: #fff;
+    background-color: var(--main-color); /* Dark brown background */
     padding: var(--spacing-unit);
     border-radius: 8px;
     margin-bottom: var(--spacing-unit);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: white; /* White text for contrast */
 }
 
 .faq-item h3 {
@@ -311,7 +330,7 @@ main {
 }
 
 .contact-section button {
-    background-color: var(--main-color);
+    background-color: var(--hover-color); /* Lighter brown for the button */
     color: white;
     padding: 10px 15px;
     border: none;
@@ -321,14 +340,14 @@ main {
 }
 
 .contact-section button:hover {
-    background-color: var(--hover-color);
+    background-color: #8B4513; /* Darker brown on hover */
 }
 
 /* Footer Section */
 footer {
     text-align: center;
     padding: var(--spacing-unit) 0;
-    background-color: var(--main-color);
+    background-color: var(--main-color); /* Dark brown background */
     color: white;
 }
 
