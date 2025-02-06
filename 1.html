@@ -13,6 +13,12 @@
             <h1>The One</h1>
             <p>The Path I Chosen</p>
         </header>
+<div id="textLoading" class="text-loading">
+    <div class="text-container">
+        <span id="loadingText"></span>
+        <div id="underline"></div>
+    </div>
+</div>
 
         <!-- Chapter List -->
         <div class="chapter-list">
@@ -93,6 +99,47 @@
 
         // Generate the chapter list when the page loads
         window.onload = generateChapterList;
+         document.addEventListener("DOMContentLoaded", function () {
+    const loadingText = document.getElementById("loadingText");
+    const underline = document.getElementById("underline");
+    const text = "The One";
+    let index = 0;
+    let isDeleting = false;
+
+    function typeEffect() {
+        if (!isDeleting) {
+            loadingText.textContent = text.slice(0, index + 1); // Type letters
+            index++;
+
+            if (index === text.length) {
+                underline.style.width = "100%"; // Expand underline
+                setTimeout(() => {
+                    underline.style.animation = "bounce 0.5s ease-in-out"; // Bounce effect
+                }, 300); // Wait a bit before bouncing
+
+                setTimeout(() => { isDeleting = true; }, 800); // Pause before deleting
+            }
+        } else {
+            loadingText.textContent = text.slice(0, index - 1); // Delete letters
+            index--;
+
+            if (index === 0) {
+                underline.style.width = "0%"; // Shrink underline
+                underline.style.animation = ""; // Remove bounce animation
+                isDeleting = false; // Restart typing
+            }
+        }
+
+        setTimeout(typeEffect, isDeleting ? 100 : 150); // Faster deleting
+    }
+
+    typeEffect(); // Start animation
+
+    // Hide loading screen after 2.5 seconds
+    setTimeout(() => {
+        document.getElementById("textLoading").classList.add("hide");
+    }, 2500);
+});
     </script>
 </body>
 </html>
