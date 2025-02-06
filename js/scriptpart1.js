@@ -368,23 +368,29 @@ function startSpeech() {
 function pauseSpeech() {
     window.speechSynthesis.pause();
 }
+
 // Function to populate the sidebar with chapter links
 function populateSidebar() {
+    console.log('Populating sidebar...'); // Debugging
+    console.log('Chapters:', chapters); // Debugging
+
     const chapterList = document.querySelector('.chapter-list');
-    chapterList.innerHTML = '';
+    if (!chapterList) {
+        console.error('Chapter list element not found!'); // Debugging
+        return;
+    }
+
+    chapterList.innerHTML = ''; // Clear existing content
 
     chapters.forEach((chapter, index) => {
         const listItem = document.createElement('li');
         const link = document.createElement('a');
         link.href = '#';
         link.textContent = chapter.title;
-        if (index + 1 === currentChapter) {
-            link.classList.add('active');
-        }
         link.onclick = () => {
             currentChapter = index + 1;
             updateChapter();
-            toggleSidebar();
+            toggleSidebar(); // Close sidebar after selecting a chapter
         };
         listItem.appendChild(link);
         chapterList.appendChild(listItem);
@@ -396,11 +402,9 @@ function toggleSidebar() {
     const sidebar = document.querySelector('.sidebar');
     sidebar.classList.toggle('open');
 }
-
-// Call populateSidebar when the page loads
 window.onload = function () {
-    populateSidebar();
-    loadProgress();
+    populateSidebar(); // Populate the sidebar with chapters
+    loadProgress(); // Load reading progress if available
 };
 
 // Save reading progress
