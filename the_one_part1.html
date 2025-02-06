@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>พาร์ทที่ 1 เรื่องราว</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
+
 <body>
     <div class="container">
         <!-- Header Section -->
@@ -62,21 +67,23 @@
 
         <!-- Dark Mode Toggle -->
         <div class="light-switch" onclick="toggleDarkMode()">
-       <div class="switch-handle">
-           <span class="icon">☀️</span>
-           <span class="icon">🌙</span>
-       </div>
-   </div>
-   <!-- Sidebar -->
-<div class="sidebar">
-    <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
-    <div class="sidebar-content">
-        <h3>สารบัญ</h3>
-        <ul class="chapter-list">
-            <!-- Chapter links will be dynamically added here -->
-        </ul>
-    </div>
-</div>
+            <div class="switch-handle">
+                <span class="icon sun">☀️</span>
+                <span class="icon moon">🌙</span>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+            <div class="sidebar-content">
+                <h3>สารบัญ</h3>
+                <ul class="chapter-list">
+                    <!-- Chapter links will be dynamically added here -->
+                </ul>
+            </div>
+        </div>
+
         <!-- Footer Section -->
         <footer>
             <p>© 2023 Kuruiya. All rights reserved.</p>
@@ -84,6 +91,7 @@
     </div>
 
     <!-- JavaScript -->
-    <script src="../js/scriptpart1.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>
