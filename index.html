@@ -197,6 +197,15 @@
         bookLoading.classList.add("hide");
     }, 1500);
 });
+function openLetter() {
+    let envelope = document.querySelector(".envelope-container");
+    envelope.classList.add("open");
+
+    // ลิ้งไปหน้าเว็บใหม่หลังจาก 1 วินาที
+    setTimeout(() => {
+        window.location.href = "https://cayman1q.github.io/#"; // เปลี่ยนเป็น URL ที่ต้องการ
+    }, 1000);
+}
 
     </script>
 </body>
