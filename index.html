@@ -33,6 +33,13 @@
 
         <!-- Main Content Section -->
         <main>
+<div id="bookLoading" class="book-loading">
+    <div class="book">
+        <div class="page left"></div>
+        <div class="page right"></div>
+        <div class="cover"></div>
+    </div>
+</div>
             <!-- Featured Section -->
             <section id="featured" class="featured-section">
                 <h2>Featured Novel</h2>
@@ -139,12 +146,6 @@
                 </form>
             </section>
         </main>
- <div id="bookLoading" class="book-loading">
-        <div class="book">
-            <div class="left-page"></div>
-            <div class="right-page"></div>
-        </div>
-    </div>
 
         <!-- Footer Section -->
         <footer>
@@ -190,35 +191,15 @@
 
         // Dynamic year for footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
-      window.addEventListener('load', () => {
-            const bookLoading = document.getElementById('bookLoading');
-            bookLoading.classList.add('hide'); // Hide the loading animation
-        });
-document.addEventListener("DOMContentLoaded", function () {
+      document.addEventListener("DOMContentLoaded", function () {
     const bookLoading = document.getElementById("bookLoading");
-    const links = document.querySelectorAll("a, button");
 
-    links.forEach(link => {
-        link.addEventListener("click", function (e) {
-            const href = this.getAttribute("href");
-
-            // Ignore if the link is a JavaScript action
-            if (!href || href.startsWith("#") || href.startsWith("javascript")) return;
-
-            e.preventDefault(); // Prevent immediate navigation
-            bookLoading.classList.add("show"); // Show loading animation
-
-            setTimeout(() => {
-                window.location.href = href; // Navigate after 1 second
-            }, 1000);
-        });
-    });
-
-    // Hide loading animation after page loads
-    window.addEventListener("load", () => {
-        bookLoading.classList.remove("show");
-    });
+    // Show loading animation for 1.5 seconds
+    setTimeout(() => {
+        bookLoading.classList.add("hide");
+    }, 1500);
 });
+
     </script>
 </body>
 </html>
