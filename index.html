@@ -139,6 +139,12 @@
                 </form>
             </section>
         </main>
+ <div id="bookLoading" class="book-loading">
+        <div class="book">
+            <div class="left-page"></div>
+            <div class="right-page"></div>
+        </div>
+    </div>
 
         <!-- Footer Section -->
         <footer>
@@ -184,6 +190,10 @@
 
         // Dynamic year for footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
+      window.addEventListener('load', () => {
+            const bookLoading = document.getElementById('bookLoading');
+            bookLoading.classList.add('hide'); // Hide the loading animation
+        });
     </script>
 </body>
 </html>
