@@ -412,27 +412,58 @@ main {
   pointer-events: none; /* Allows clicks to pass through */
 }
 
-.video-card:hover::before {
-  background-color: rgba(0, 0, 0, 0.1); /* Semi-transparent black on hover */
+.video-card {
+  display: block;
+  width: 90%; /* Occupy most of the screen width on mobile/tablet */
+  max-width: 400px; /* Set a maximum width for larger tablets */
+  margin: 16px auto; /* Center the card */
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative; /* Important for positioning the button */
+  overflow: hidden; /* To contain the button within the card */
 }
 
-/* Optional: Add a "Play" icon on hover */
-.video-card::after {
-  content: "\25B9"; /* Unicode for a right-pointing triangle (play icon) */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 32px;
+.video-info {
+    padding: 16px;
+  background-color: #fff;
+  display: flex; /* Enable flexbox for layout */
+  flex-direction: column; /* Arrange items vertically */
+  align-items: flex-start; /* Align items to the left by default */
+}
+
+.read-button {
+  background-color: #007bff; /* Example button color */
   color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px; /* Add some spacing */
   opacity: 0; /* Initially hidden */
-  transition: opacity 0.2s ease;
-  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease; /* Smooth transitions */
+  align-self: center; /* Center the button */
 }
 
-.video-card:hover::after {
-  opacity: 1;
+.video-card:hover .read-button {
+  opacity: 1; /* Show on hover */
+  transform: scale(1.05); /* Slightly scale up on hover */
 }
+
+/* Optional: Style the button on hover */
+.read-button:hover {
+  background-color: #0056b3;
+}
+
+/* Media query to adjust button behavior on touch devices */
+@media (hover: none) {
+  .video-card:hover .read-button {
+    opacity: 1; /* Show button on tap, if desired */
+    transform: scale(1); /* Remove scale effect on tap */
+  }
+}
+
 
 /* Reviews Section */
 .reviews-section {
