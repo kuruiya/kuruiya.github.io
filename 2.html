@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>อ่านนิยาย - สารบัญ</title>
+    <link rel="stylesheet" href="..\css\style1.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>Unbreakable rule</h1>
+            <p>do not break the rule</p>
+        </header>
+<div id="textLoading" class="text-loading">
+    <div class="text-container">
+        <span id="loadingText"></span>
+        <div id="underline"></div>
+    </div>
+</div>
+
+        <!-- Chapter List -->
+        <div class="chapter-list">
+            <h2>สารบัญ</h2>
+            <p>จำนวน <span id="total-chapters">0</span> พาร์ท</p>
+            <ul id="chapters">
+                <!-- Chapters will be dynamically added here -->
+            </ul>
+        </div>
+
+        <!-- Begin Reading Button -->
+        <div class="controls">
+            <button id="begin-reading-btn">เริ่มต้นอ่าน</button>
+            <button id="back-to-home-btn">กลับไปที่หน้าหลัก</button>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>© kuruiya</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Chapter Data (Replace with your actual chapter titles and links)
+        const chapters = [
+            { title: "พาร์ทที่ 1 : เส้นแรก", link: "urpart1.html" },
+        ];
+
+        // Function to generate the chapter list
+        function generateChapterList() {
+            const chapterList = document.getElementById('chapters');
+            const totalChapters = document.getElementById('total-chapters');
+
+            // Clear existing list
+            chapterList.innerHTML = '';
+
+            // Check if there are any chapters
+            if (chapters.length === 0) {
+                chapterList.innerHTML = '<li>ไม่มีบทในตอนนี้</li>';
+                totalChapters.textContent = '0';
+                return;
+            }
+
+            // Add each chapter to the list
+            chapters.forEach((chapter, index) => {
+                const listItem = document.createElement('li');
+                const chapterLink = document.createElement('a');
+                chapterLink.href = chapter.link;
+                chapterLink.textContent = `${index + 1}. ${chapter.title}`; // Add chapter number
+                listItem.appendChild(chapterLink);
+                chapterList.appendChild(listItem);
+            });
+
+            // Update the chapter count
+            totalChapters.textContent = chapters.length;
+        }
+
+        // Function to handle the "Begin Reading" button
+        function beginReading() {
+            if (chapters.length > 0) {
+                // Redirect to the first chapter
+                window.location.href = chapters[0].link;
+            } else {
+                alert("ไม่มีบทที่สามารถอ่านได้ในตอนนี้");
+            }
+        }
+
+        // Function to handle the "Back to Home" button
+        function backToHome() {
+            window.location.href = "index.html";
+        }
+
+        // Event Listeners
+        document.getElementById('begin-reading-btn').addEventListener('click', beginReading);
+        document.getElementById('back-to-home-btn').addEventListener('click', backToHome);
+
+        // Generate the chapter list when the page loads
+        window.onload = generateChapterList;
+         document.addEventListener("DOMContentLoaded", function () {
+    const loadingText = document.getElementById("loadingText");
+    const underline = document.getElementById("underline");
+    const text = "The One";
+    let index = 0;
+    let isDeleting = false;
+
+    function typeEffect() {
+        if (!isDeleting) {
+            loadingText.textContent = text.slice(0, index + 1); // Type letters
+            index++;
+
+            if (index === text.length) {
+                underline.style.width = "100%"; // Expand underline
+                setTimeout(() => {
+                    underline.style.animation = "bounce 0.5s ease-in-out"; // Bounce effect
+                }, 300); // Wait a bit before bouncing
+
+                setTimeout(() => { isDeleting = true; }, 800); // Pause before deleting
+            }
+        } else {
+            loadingText.textContent = text.slice(0, index - 1); // Delete letters
+            index--;
+
+            if (index === 0) {
+                underline.style.width = "0%"; // Shrink underline
+                underline.style.animation = ""; // Remove bounce animation
+                isDeleting = false; // Restart typing
+            }
+        }
+
+        setTimeout(typeEffect, isDeleting ? 100 : 150); // Faster deleting
+    }
+
+    typeEffect(); // Start animation
+
+    // Hide loading screen after 2.5 seconds
+    setTimeout(() => {
+        document.getElementById("textLoading").classList.add("hide");
+    }, 2500);
+});
+    </script>
+</body>
+</html>
