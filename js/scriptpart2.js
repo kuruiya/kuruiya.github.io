@@ -275,10 +275,16 @@ Celestial gift : พฤกษา</br></br>
 // Function to update the chapter content
 function updateChapter() {
     const contentDiv = document.querySelector('.content');
+    if (!contentDiv) {
+        console.error('Content div not found!');
+        return;
+    }
     contentDiv.innerHTML = `
         <h2>${chapters[currentChapter - 1].title}</h2>
         <p class="story-text">${chapters[currentChapter - 1].content}</p>
     `;
+    // Apply current font size
+    document.querySelector('.story-text').style.fontSize = fontSize + 'px';
     scrollToTop();
 }
 
@@ -288,7 +294,8 @@ function nextChapter() {
         currentChapter++;
         updateChapter();
     } else {
-        alert("คุณอยู่ที่บทสุดท้ายแล้ว");
+        alert('คุณกำลังไปสู่พาร์ทที่ 2 อลิซ');
+        window.location.href = 'the_one_part2.html';
     }
 }
 
@@ -298,30 +305,26 @@ function previousChapter() {
         currentChapter--;
         updateChapter();
     } else {
-        alert("คุณอยู่ที่บทแรกแล้ว");
+        alert('คุณอยู่บทแรกแล้ว');
     }
 }
 
-// Function to increase font size
-function increaseFontSize() {
-    fontSize += 2;
+// Function to adjust font size
+function adjustFontSize(increment) {
+    fontSize += increment;
+    // Limit font size
+    fontSize = Math.max(12, Math.min(24, fontSize));
     document.querySelector('.story-text').style.fontSize = fontSize + 'px';
-}
-
-// Function to decrease font size
-function decreaseFontSize() {
-    if (fontSize > 12) {  // Prevent font size from becoming too small
-        fontSize -= 2;
-        document.querySelector('.story-text').style.fontSize = fontSize + 'px';
-    }
+    localStorage.setItem('fontSize', fontSize.toString()); // Save font size
 }
 
 // Function to toggle dark mode
 function toggleDarkMode() {
+    isDarkMode = !isDarkMode;
     const body = document.body;
-    body.classList.toggle('dark-mode');
+    body.classList.toggle('dark-mode', isDarkMode);
+    localStorage.setItem('darkMode', isDarkMode.toString()); // Save dark mode state
 }
-
 // Function to return to the main page
 function mainpath() {
     window.location.href = "1.html";
@@ -333,7 +336,7 @@ function scrollToTop() {
         top: 0,
         behavior: "smooth" // Smooth scrolling animation
     });
-            }
+}
 // Function to search text in the content
 function searchText() {
     const searchTerm = document.getElementById('search-input').value;
@@ -381,6 +384,44 @@ function pauseSpeech() {
     window.speechSynthesis.pause();
 }
 
+// Function to populate the sidebar with chapter links
+function populateSidebar() {
+    console.log('Populating sidebar...'); // Debugging
+    console.log('Chapters:', chapters); // Debugging
+
+    const chapterList = document.querySelector('.chapter-list');
+    if (!chapterList) {
+        console.error('Chapter list element not found!'); // Debugging
+        return;
+    }
+
+    chapterList.innerHTML = ''; // Clear existing content
+
+    chapters.forEach((chapter, index) => {
+        const listItem = document.createElement('li');
+        const link = document.createElement('a');
+        link.href = '#';
+        link.textContent = chapter.title;
+        link.onclick = () => {
+            currentChapter = index + 1;
+            updateChapter();
+            toggleSidebar(); // Close sidebar after selecting a chapter
+        };
+        listItem.appendChild(link);
+        chapterList.appendChild(listItem);
+    });
+}
+
+// Function to toggle the sidebar
+function toggleSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    sidebar.classList.toggle('open');
+}
+window.onload = function () {
+    populateSidebar(); // Populate the sidebar with chapters
+    loadProgress(); // Load reading progress if available
+};
+
 // Save reading progress
 function saveProgress() {
     const scrollPosition = window.scrollY;
@@ -398,5 +439,46 @@ function loadProgress() {
 // Load progress when the page loads
 window.onload = loadProgress;
 
+// Save progress when the user scrolls
+window.onscroll = saveProgress;
+function toggleDarkMode() {
+    isDarkMode = !isDarkMode;
+    const body = document.body;
+    body.classList.toggle('dark-mode', isDarkMode);
+    localStorage.setItem('darkMode', isDarkMode.toString()); // Save dark mode state
+}
+
+// Function to adjust font size
+function increaseFontSize() {
+    adjustFontSize(2); // Increase font size by 2px
+}
+
+function decreaseFontSize() {
+    adjustFontSize(-2); // Decrease font size by 2px
+}
+// Load saved settings and progress
+function loadProgress() {
+    const savedChapter = localStorage.getItem('currentChapter');
+    const savedScrollPosition = localStorage.getItem('scrollPosition');
+    const savedFontSize = localStorage.getItem('fontSize');
+    const savedDarkMode = localStorage.getItem('darkMode');
+
+    if (savedChapter) {
+        currentChapter = parseInt(savedChapter);
+    }
+    if (savedFontSize) {
+        fontSize = parseInt(savedFontSize);
+        document.querySelector('.story-text').style.fontSize = fontSize + 'px';
+    }
+    if (savedDarkMode) {
+        isDarkMode = savedDarkMode === 'true';
+        document.body.classList.toggle('dark-mode', isDarkMode);
+    }
+
+    updateChapter(); // Load chapter after settings
+    if (savedScrollPosition) {
+        window.scrollTo(0, parseInt(savedScrollPosition));
+    }
+}
 // Save progress when the user scrolls
 window.onscroll = saveProgress;
