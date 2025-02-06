@@ -368,6 +368,40 @@ function startSpeech() {
 function pauseSpeech() {
     window.speechSynthesis.pause();
 }
+// Function to populate the sidebar with chapter links
+function populateSidebar() {
+    const chapterList = document.querySelector('.chapter-list');
+    chapterList.innerHTML = '';
+
+    chapters.forEach((chapter, index) => {
+        const listItem = document.createElement('li');
+        const link = document.createElement('a');
+        link.href = '#';
+        link.textContent = chapter.title;
+        if (index + 1 === currentChapter) {
+            link.classList.add('active');
+        }
+        link.onclick = () => {
+            currentChapter = index + 1;
+            updateChapter();
+            toggleSidebar();
+        };
+        listItem.appendChild(link);
+        chapterList.appendChild(listItem);
+    });
+}
+
+// Function to toggle the sidebar
+function toggleSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    sidebar.classList.toggle('open');
+}
+
+// Call populateSidebar when the page loads
+window.onload = function () {
+    populateSidebar();
+    loadProgress();
+};
 
 // Save reading progress
 function saveProgress() {
