@@ -369,40 +369,69 @@ main {
 }
 
 .video-card {
-    background-color: var(--main-color);
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-    color: white;
+  display: block; /* Makes the <a> behave like a block element for easier styling */
+  width: 300px; /* Adjust as needed */
+  border-radius: 8px; /* Optional: Rounded corners */
+  overflow: hidden; /* Ensures image stays within the card boundaries */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transitions */
+  position: relative; /* Needed for absolute positioning of pseudo-element */
 }
 
 .video-card:hover {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transform: translateY(-5px);
+  transform: translateY(-5px); /* Move up slightly on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* More prominent shadow on hover */
 }
 
 .video-thumbnail {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
+  display: block; /* Prevents a small gap below the image */
 }
 
 .video-info {
-    padding: var(--spacing-unit);
+  padding: 16px;
+  background-color: #fff; /* Or a subtle off-white */
 }
 
 .video-title {
-    font-size: 1.2em;
-    margin-bottom: 10px;
+  margin-top: 0; /* Remove default margin */
+  font-weight: bold;
 }
 
-.video-author {
-    font-weight: 600;
-    margin-bottom: 10px;
+/* Optional: Add a subtle overlay on hover */
+.video-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0); /* Initially transparent */
+  transition: background-color 0.2s ease;
+  pointer-events: none; /* Allows clicks to pass through */
 }
 
-.video-description {
-    font-size: 0.9em;
+.video-card:hover::before {
+  background-color: rgba(0, 0, 0, 0.1); /* Semi-transparent black on hover */
+}
+
+/* Optional: Add a "Play" icon on hover */
+.video-card::after {
+  content: "\25B9"; /* Unicode for a right-pointing triangle (play icon) */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 32px;
+  color: white;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.video-card:hover::after {
+  opacity: 1;
 }
 
 /* Reviews Section */
