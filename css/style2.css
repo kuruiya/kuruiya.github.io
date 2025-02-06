@@ -113,7 +113,7 @@ body {
 header {
     text-align: center;
     padding: var(--spacing-unit) 0;
-    background-color: var(--main-color);
+    background-color: #964B00;
     color: white;
     position: fixed;
     top: 0;
