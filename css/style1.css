@@ -7,14 +7,20 @@
 
 /* Variables */
 :root {
-    --main-color: #8B5A2B; /* Dark brown */
-    --hover-color: #04AA6D; /* Green for hover */
-    --background-color: #f5f5dc; /* Beige */
-    --text-color: #333; /* Main text color */
-    --font-size-base: 16px;
-    --font-size-large: 1.8em;
-    --spacing-unit: 20px;
+    --main-bg-color: #24292e; /* Dark GitHub theme background color */
+    --main-text-color: #ffffff; /* White text color */
+    --secondary-bg-color: #2d333b; /* Lighter dark background */
+    --border-color: #444d56; /* Border color */
+    --hover-color: #0366d6; /* GitHub blue for hover */
 }
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /* Full-screen Loading Overlay */
 .text-loading {
     position: fixed;
@@ -66,102 +72,149 @@
     transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
 }
 
+/* Global Styles */
 body {
-    font-family: sans-serif; /* Fallback font */
-    font-size: var(--font-size-base);
-    line-height: 1.6;
-    background-color: #f9f9f9;
-    color: var(--text-color);
+    background-color: var(--main-bg-color);
+    color: var(--main-text-color);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column; /* Ensure footer sticks to bottom */
     min-height: 100vh; /* Ensure body covers full viewport height */
 }
 
 .container {
-    max-width: 800px; /* Slightly narrower for readability */
+    max-width: 960px;
     margin: 0 auto;
-    padding: var(--spacing-unit);
+    padding: 20px;
     flex: 1; /* Allow main content to expand */
 }
 
+/* Header */
 header {
+    background-color: var(--secondary-bg-color);
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color);
     text-align: center;
-    padding: var(--spacing-unit) 0;
-    background-color: var(--main-color);
-    color: white;
-    margin-bottom: var(--spacing-unit);
 }
 
 header h1 {
-    font-size: 2em;
-    margin-bottom: 10px;
+    margin: 0;
+    color: var(--main-text-color);
 }
 
 header p {
-    font-size: 1.2em;
+    margin: 5px 0 0;
+    color: var(--main-text-color);
 }
 
+/* Chapter List */
 .chapter-list {
-    background-color: var(--background-color);
-    padding: var(--spacing-unit);
+    background-color: var(--secondary-bg-color);
+    padding: 20px;
     border-radius: 8px;
-    margin-bottom: var(--spacing-unit);
+    margin-bottom: 20px;
 }
 
 .chapter-list h2 {
     margin-bottom: 10px;
+    color: var(--main-text-color);
 }
 
-.chapter-list ul {
-    list-style: none;
-    padding-left: 20px; /* Indent the list items */
+.card {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
-.chapter-list li a {
-    color: var(--main-color);
-    text-decoration: none;
-    transition: color 0.3s ease;
-    display: block; /* Make links fill the list item width */
-    padding: 5px 0; /* Add some vertical padding */
+.card p {
+    width: 210px;
+    height: 254px;
+    background: var(--secondary-bg-color);
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all .5s;
 }
 
-.chapter-list li a:hover {
+.card p:hover {
+    flex: 4;
+}
+
+.card p span {
+    min-width: 14em;
+    padding: .5em;
+    text-align: center;
+    transform: rotate(-90deg);
+    transition: all .5s;
+    text-transform: uppercase;
     color: var(--hover-color);
+    letter-spacing: .1em;
 }
 
+.card p:hover span {
+    transform: rotate(0);
+}
+
+.card a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.card a:hover {
+    text-decoration: none;
+}
+
+/* Buttons */
 .controls {
     text-align: center;
-    margin-bottom: var(--spacing-unit);
+    margin-bottom: 20px;
 }
 
-.controls button {
-    background-color: var(--main-color);
-    color: white;
-    padding: 10px 15px;
+button {
+    background-color: var(--hover-color);
+    color: var(--main-text-color);
     border: none;
-    border-radius: 5px;
+    padding: 10px 15px;
+    border-radius: 4px;
     cursor: pointer;
-    margin: 0 10px; /* Add some spacing between buttons */
+    margin: 0 10px;
     transition: background-color 0.3s ease;
 }
 
-.controls button:hover {
-    background-color: var(--hover-color);
+button:hover {
+    background-color: #0056b3; /* Darker blue for hover effect */
 }
 
+/* Footer */
 footer {
+    background-color: var(--secondary-bg-color);
+    padding: 10px;
+    border-top: 1px solid var(--border-color);
     text-align: center;
-    padding: var(--spacing-unit) 0;
-    background-color: var(--main-color);
-    color: white;
     margin-top: auto; /* Push the footer to the bottom */
 }
 
+footer p {
+    margin: 0;
+    color: var(--main-text-color);
+}
 
-/* Responsive Styles (adjust as needed) */
+/* Responsive Styles */
 @media screen and (max-width: 600px) {
     .container {
-        padding: 10px; /* Reduce padding on smaller screens */
+        padding: 10px;
     }
 
     header h1 {
@@ -169,64 +222,8 @@ footer {
     }
 
     .controls button {
-        margin: 5px; /* Reduce button margin */
-        padding: 8px 12px; /* Slightly smaller buttons */
-        font-size: 0.9em; /* Smaller font for buttons */
+        margin: 5px;
+        padding: 8px 12px;
+        font-size: 0.9em;
     }
-}
-
-/*------------card part------------------*/
-.card {
-  width: 210px;
-  height: 254px;
-  border-radius: 4px;
-  background: #212121;
-  display: flex;
-  gap: 5px;
-  padding: .4em;
-}
-
-.card p {
-  height: 100%;
-  flex: 1;
-  overflow: hidden;
-  cursor: pointer;
-  border-radius: 2px;
-  transition: all .5s;
-  background: #212121;
-  border: 1px solid #ff5a91;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.card p:hover {
-  flex: 4;
-}
-
-.card p span {
-  min-width: 14em;
-  padding: .5em;
-  text-align: center;
-  transform: rotate(-90deg);
-  transition: all .5s;
-  text-transform: uppercase;
-  color: #ff568e;
-  letter-spacing: .1em;
-}
-
-.card p:hover span {
-  transform: rotate(0);
-}
-
-.card a {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-.card a:hover {
-  text-decoration: none;
 }
