@@ -4,15 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>สารบัญหนังสือ</title>
-    <link rel="stylesheet" href="../css/style1.css"> 
+    <link rel="stylesheet" href="styles.css"> <!-- ลิงค์ไปยังไฟล์ CSS -->
 </head>
 <body>
     <h1>สารบัญหนังสือ</h1>
-    <ul class="book-list">
-        <li class="book-item"><a class="book-link" href="the_one_part1.html">เล่มที่ 1</a></li>
-        <li class="book-item"><a class="book-link" href="the_one_part2.html">เล่มที่ 2</a></li>
-        <!-- สามารถเพิ่มลิงค์หนังสืออื่นๆ ได้ที่นี่ -->
-    </ul>
-    <a href="index.html" class="home-button">กลับหน้าแรก</a>
+    <div class="card-container">
+        <div class="card">
+            <p><a href="the_one_part1.html"><span>เล่มที่ 1</span></a></p>
+        </div>
+        <div class="card">
+            <p><a href="the_one_part2.html"><span>เล่มที่ 2</span></a></p>
+        </div>
+        <!-- สามารถเพิ่มการ์ดหนังสืออื่นๆ ได้ที่นี่ -->
+    </div>
+    <div class="button-container">
+        <a href="index.html" class="home-button">กลับหน้าแรก</a>
+    </div>
 </body>
 </html>
