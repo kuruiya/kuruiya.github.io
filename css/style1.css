@@ -22,7 +22,6 @@ a:hover {
 }
 
 .card {
-    background-color: #161b22;
     border: 1px solid #30363d;
     border-radius: 8px;
     padding: 20px;
@@ -33,6 +32,13 @@ a:hover {
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
+/* สีน้ำเงิน, แดง, เขียว, เหลือง, ม่วง, และสีอื่น ๆ */
+.card:nth-child(1) { background-color: #1f77b4; }
+.card:nth-child(2) { background-color: #ff7f0e; }
+.card:nth-child(3) { background-color: #2ca02c; }
+.card:nth-child(4) { background-color: #d62728; }
+.card:nth-child(5) { background-color: #9467bd; }
+
 /* การ์ดเป็นสันหนังสือ */
 .card p {
     writing-mode: vertical-rl;
@@ -40,7 +46,7 @@ a:hover {
 }
 
 /* ขยายเมื่อกดคลิก */
-.card:active {
+.card.active {
     transform: scale(1.1);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
@@ -51,25 +57,18 @@ a:hover {
     color: #58a6ff;
     padding: 10px 20px;
     border-radius: 5px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
+/* ปุ่มสวยงาม */
 .button-container a:hover {
     background-color: #30363d;
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
 /* สไตล์เพิ่มเติม */
 h1 {
     text-align: center;
     margin-top: 20px;
-}
-
-/* ทำให้เมื่อกดครั้งที่สองลิงค์ไปยังหน้าที่ต้องการ */
-.card-clicked {
-    transform: scale(1);
-    box-shadow: none;
-}
-
-.card-clicked a {
-    display: block;
 }
