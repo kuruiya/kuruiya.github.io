@@ -33,12 +33,13 @@
 
         <!-- Main Content Section -->
         <main>
-<div id="bookLoading" class="book-loading">
-    <div class="book">
-        <div class="page left"></div>
-        <div class="page right"></div>
-        <div class="cover"></div>
-    </div>
+
+<div class="loadingspinner">
+  <div id="square1"></div>
+  <div id="square2"></div>
+  <div id="square3"></div>
+  <div id="square4"></div>
+  <div id="square5"></div>
 </div>
             <!-- Featured Section -->
                <section id="featured">
@@ -195,14 +196,16 @@
 
         // Dynamic year for footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
+
       document.addEventListener("DOMContentLoaded", function () {
-    const bookLoading = document.getElementById("bookLoading");
+    const loadingspinner = document.getElementById("loadingspinner");
 
     // Show loading animation for 1.5 seconds
     setTimeout(() => {
-        bookLoading.classList.add("hide");
+        loadingspinner.classList.add("hide");
     }, 1500);
 });
+
 function openLetter() {
     let envelope = document.querySelector(".envelope-container");
     envelope.classList.add("open");
