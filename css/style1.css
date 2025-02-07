@@ -1,40 +1,62 @@
 /* สไตล์ CSS ธีมมืดแบบ GitHub */
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: Arial, sans-serif;
     background-color: #0d1117;
     color: #c9d1d9;
     margin: 0;
     padding: 20px;
 }
 
-.book-list {
-    list-style: none;
-    padding: 0;
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
-.book-item {
-    background-color: #161b22;
-    margin-bottom: 10px;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(27,31,35,0.12), 0 1px 2px rgba(27,31,35,0.24);
-    border: 1px solid #30363d;
+.card {
+    width: 210px;
+    height: 254px;
+    border-radius: 4px;
+    background: #212121;
+    display: flex;
+    gap: 5px;
+    padding: .4em;
 }
 
-.book-link {
-    text-decoration: none;
-    color: #58a6ff;
+.card p {
+    height: 100%;
+    flex: 1;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all .5s;
+    background: #212121;
+    border: 1px solid #ff5a91;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.book-link:hover {
-    text-decoration: underline;
+.card p:hover {
+    flex: 4;
+}
+
+.card p span {
+    min-width: 14em;
+    padding: .5em;
+    text-align: center;
+    transform: rotate(-90deg);
+    transition: all .5s;
+    text-transform: uppercase;
+    color: #ff568e;
+    letter-spacing: .1em;
+}
+
+.card p:hover span {
+    transform: rotate(0);
 }
 
 /* สไตล์ปุ่มกลับหน้าแรก */
-.button-container {
-    margin-top: 20px;
-}
-
 .home-button {
     background-color: #58a6ff;
     color: #0d1117;
