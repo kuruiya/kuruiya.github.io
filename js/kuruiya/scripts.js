@@ -1,18 +1,27 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const cards = document.querySelectorAll(".card");
-    const bookCountElement = document.getElementById("book-count");
-    
-    // แสดงจำนวนหนังสือ
-    bookCountElement.textContent = `จำนวนหนังสือ: ${cards.length}`;
-    
+document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.card');
+
     cards.forEach(card => {
-        card.addEventListener("click", function() {
-            if (card.classList.contains("active")) {
-                window.location.href = card.querySelector("a").href;
+        let clicked = false;
+        card.addEventListener('click', function() {
+            if (!clicked) {
+                // Remove 'active' class from other cards
+                cards.forEach(c => c !== card && c.classList.remove('active'));
+                // Add 'active' class to the clicked card
+                card.classList.add('active');
+                clicked = true;
             } else {
-                cards.forEach(c => c.classList.remove("active"));
-                card.classList.add("active");
+                // Redirect to the link specified in 'data-link' attribute
+                const link = card.getAttribute('data-link');
+                if (link) {
+                    window.location.href = link;
+                }
             }
         });
     });
+
+    // Update book count
+    const bookCountElement = document.getElementById('book-count');
+    const totalBooks = document.querySelectorAll('.card').length;
+    bookCountElement.textContent = `มีหนังสือทั้งหมด : ${totalBooks} เล่ม`;
 });
