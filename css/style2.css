@@ -27,7 +27,7 @@
 }
 
 /* ====== Full-screen Loading Overlay ====== */
-.book-loading {
+.loadingspinner {
     position: fixed;
     top: 0;
     left: 0;
@@ -39,7 +39,7 @@
     transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
 }
 
-.book-loading.hide {
+.loadingspinner.hide {
     opacity: 0;
     visibility: hidden;
 }
