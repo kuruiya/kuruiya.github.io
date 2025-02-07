@@ -3,111 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>อ่านนิยาย - สารบัญ</title>
-    <link rel="stylesheet" href="..\css\style1.css">
+    <title>สารบัญหนังสือ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .book-list {
+            list-style: none;
+            padding: 0;
+        }
+        .book-item {
+            background-color: #fff;
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .book-link {
+            text-decoration: none;
+            color: #333;
+        }
+        .book-link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <header>
-            <h1>The One</h1>
-            <p>The Path I Chosen</p>
-        </header>
-<div id="textLoading" class="text-loading">
-    <div class="text-container">
-        <span id="loadingText"></span>
-        <div id="underline"></div>
-    </div>
-</div>
+    <h1>สารบัญหนังสือ</h1>
+    <ul class="book-list">
+        <li class="book-item"><a class="book-link" href="link1.html">เล่มที่ 1</a></li>
+        <li class="book-item"><a class="book-link" href="link2.html">เล่มที่ 2</a></li>
 
-        <!-- Chapter List -->
-        <div class="chapter-list">
-            <h2>สารบัญ</h2>
-
-        <div class="card">
-    <p><a href="the_one_part1.html" target="_blank" onclick="handleClick(event)"><span>Part 1 เรื่องราว</span></a></p>
-    <p><a href="the_one_part2.html" target="_blank" onclick="handleClick(event)"><span>Part 2 อลิซ</span></a></p>
-</div>
-
-        <!-- Begin Reading Button -->
-        <div class="controls">
-            <button id="begin-reading-btn">เริ่มต้นอ่าน</button>
-            <button id="back-to-home-btn">กลับไปที่หน้าหลัก</button>
-        </div>
-
-
-        <!-- Footer -->
-        <footer>
-            <p>© kuruiya</p>
-        </footer>
-    </div>
-
-    <!-- JavaScript -->
-    <script>
-        // Function to handle the "Back to Home" button
-        function backToHome() {
-            window.location.href = "index.html";
-        }
-
-        // Event Listeners
-        document.getElementById('begin-reading-btn').addEventListener('click', beginReading);
-        document.getElementById('back-to-home-btn').addEventListener('click', backToHome);
-
-        document.addEventListener("DOMContentLoaded", function () {
-            const loadingText = document.getElementById("loadingText");
-            const underline = document.getElementById("underline");
-            const text = "The One";
-            let index = 0;
-            let isDeleting = false;
-
-            function typeEffect() {
-                if (!isDeleting) {
-                    loadingText.textContent = text.slice(0, index + 1); // Type letters
-                    index++;
-
-                    if (index === text.length) {
-                        underline.style.width = "100%"; // Expand underline
-                        setTimeout(() => {
-                            underline.style.animation = "bounce 0.5s ease-in-out"; // Bounce effect
-                        }, 300); // Wait a bit before bouncing
-
-                        setTimeout(() => { isDeleting = true; }, 800); // Pause before deleting
-                    }
-                } else {
-                    loadingText.textContent = text.slice(0, index - 1); // Delete letters
-                    index--;
-
-                    if (index === 0) {
-                        underline.style.width = "0%"; // Shrink underline
-                        underline.style.animation = ""; // Remove bounce animation
-                        isDeleting = false; // Restart typing
-                    }
-                }
-
-                setTimeout(typeEffect, isDeleting ? 100 : 150); // Faster deleting
-            }
-
-            typeEffect(); // Start animation
-
-            // Hide loading screen after 2.5 seconds
-            setTimeout(() => {
-                document.getElementById("textLoading").classList.add("hide");
-            }, 2500);
-        });
-
-        let clickCount = 0;
-
-        function handleClick(event) {
-            event.preventDefault(); // ป้องกันการเปิดลิงก์ทันที
-            clickCount++;
-
-            if (clickCount === 2) {
-                window.open(event.currentTarget.href, "_blank");
-                clickCount = 0;
-            } else {
-                setTimeout(() => clickCount = 0, 300); // รีเซ็ตตัวนับหลัง 300 มิลลิวินาที
-            }
-        }
-    </script>
+        <!-- สามารถเพิ่มลิงค์หนังสืออื่นๆ ได้ที่นี่ -->
+    </ul>
 </body>
 </html>
