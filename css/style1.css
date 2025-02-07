@@ -1,82 +1,75 @@
-/* สไตล์ CSS ธีมมืดแบบ GitHub */
+/* ธีมมืดสำหรับ GitHub */
 body {
-    font-family: Arial, sans-serif;
     background-color: #0d1117;
     color: #c9d1d9;
-    margin: 0;
-    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+a {
+    color: #58a6ff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 .card-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    justify-content: space-around;
+    padding: 20px;
 }
 
 .card {
-    width: 210px;
-    height: 254px;
-    border-radius: 4px;
-    background: #212121;
-    display: flex;
-    gap: 5px;
-    padding: .4em;
-    transition: all .5s;
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px;
+    width: 150px;
+    text-align: center;
     cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.card:hover {
-    background: #333;
-}
-
-.card.expanded {
-    flex: 4;
-    background: #333;
-}
-
+/* การ์ดเป็นสันหนังสือ */
 .card p {
-    height: 100%;
-    flex: 1;
-    overflow: hidden;
-    cursor: pointer;
-    border-radius: 2px;
-    background: #212121;
-    border: 1px solid #ff5a91;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
 }
 
-.card p span {
-    min-width: 14em;
-    padding: .5em;
-    text-align: center;
-    transform: rotate(-90deg);
-    transition: all .5s;
-    text-transform: uppercase;
-    color: #ff568e;
-    letter-spacing: .1em;
+/* ขยายเมื่อกดคลิก */
+.card:active {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
-.card.expanded p span {
-    transform: rotate(0);
-}
-
-/* สไตล์ปุ่มกลับหน้าแรก */
-.home-button {
-    background-color: #58a6ff;
-    color: #0d1117;
-    border: none;
+/* ธีมมืด */
+.button-container a {
+    background-color: #21262d;
+    color: #58a6ff;
     padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
     border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s;
 }
 
-.home-button:hover {
-    background-color: #1f6feb;
+.button-container a:hover {
+    background-color: #30363d;
+}
+
+/* สไตล์เพิ่มเติม */
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* ทำให้เมื่อกดครั้งที่สองลิงค์ไปยังหน้าที่ต้องการ */
+.card-clicked {
+    transform: scale(1);
+    box-shadow: none;
+}
+
+.card-clicked a {
+    display: block;
 }
