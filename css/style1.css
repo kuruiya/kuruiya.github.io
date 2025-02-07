@@ -22,10 +22,16 @@ body {
     gap: 5px;
     padding: .4em;
     transition: all .5s;
+    cursor: pointer;
+}
+
+.card:hover {
+    background: #333;
 }
 
 .card.expanded {
     flex: 4;
+    background: #333;
 }
 
 .card p {
@@ -68,6 +74,7 @@ body {
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .home-button:hover {
