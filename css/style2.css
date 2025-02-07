@@ -8,14 +8,14 @@
 }
 
 :root {
-  /* Brand Colors */
-  --primary-color: #8B5A2B; /* Dark brown (matches existing) */
-  --secondary-color: #A0522D; /* Lighter brown (matches existing hover) */
-  --accent-color: #FFC107; /* Gold-ish */
-  --text-color-dark: #333;
-  --text-color-light: #f5f5dc; /* Beige (matches existing) */
-  --background-light: #f5f5dc; /* Beige */
-  --background-dark: #964B00; /* Brown header (matches existing) */
+   /* Dark Blue Brand Colors */
+  --primary-color: #191970; /* Midnight Blue */
+  --secondary-color: #36454F; /* Charcoal */
+  --accent-color: #ADD8E6; /* Light Blue */
+  --text-color-dark: #f0f8ff; /* Alice Blue */
+  --text-color-light: #e6e6fa; /* Lavender */
+  --background-light: #f0f8ff; /* Alice Blue */
+  --background-dark: #2f4f4f; /* Dark Slate Gray */
 
   /* Typography */
   --font-family-base: 'Noto Serif Thai', serif;
