@@ -182,6 +182,92 @@ main {
   padding-top: 160px; /* Adjusted for fixed header height */
 }
 
+
+/* ====== Featured Section ====== */
+#featured {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: var(--spacing-large) 0; /* Add some padding */
+}
+
+.card {
+  position: relative;
+  width: 90%;
+  max-width: 350px;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-medium);
+  gap: var(--spacing-small);
+  border-radius: var(--border-radius-default);
+  cursor: pointer;
+  color: var(--text-color-light);
+  text-align: center;
+  overflow: hidden;
+  transition: transform var(--transition-duration-normal), box-shadow var(--transition-duration-normal);
+}
+
+.card::before,
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--border-radius-default);
+  z-index: -1;
+  pointer-events: none;
+  transition: transform var(--transition-duration-normal), filter var(--transition-duration-normal);
+}
+
+.card::before {
+  background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100%);
+}
+
+.card::after {
+  background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100%);
+  transform: translate3d(0, 0, 0) scale(0.95);
+  filter: blur(20px);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.card:hover::after {
+  filter: blur(30px);
+}
+
+.card:hover::before {
+  transform: rotate(-90deg) scaleX(1.34) scaleY(0.77);
+}
+
+.card a {
+    text-decoration: none;
+}
+
+.card img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: var(--border-radius-default);
+  transition: transform var(--transition-duration-normal);
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+
+.card p.heading {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-small);
+  color: var(--text-color-light);
+}
+
 /* ====== Loading Spinner ====== */
 .loadingspinner {
   /* (Your loading spinner styles - keep as is) */
@@ -432,90 +518,7 @@ main {
   }
 }
 
-/* ====== Featured Section ====== */
-#featured {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding: var(--spacing-large) 0; /* Add some padding */
-}
 
-.card {
-  position: relative;
-  width: 90%;
-  max-width: 350px;
-  background-color: #000;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: var(--spacing-medium);
-  gap: var(--spacing-small);
-  border-radius: var(--border-radius-default);
-  cursor: pointer;
-  color: var(--text-color-light);
-  text-align: center;
-  overflow: hidden;
-  transition: transform var(--transition-duration-normal), box-shadow var(--transition-duration-normal);
-}
-
-.card::before,
-.card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: var(--border-radius-default);
-  z-index: -1;
-  pointer-events: none;
-  transition: transform var(--transition-duration-normal), filter var(--transition-duration-normal);
-}
-
-.card::before {
-  background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100%);
-}
-
-.card::after {
-  background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100%);
-  transform: translate3d(0, 0, 0) scale(0.95);
-  filter: blur(20px);
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-}
-
-.card:hover::after {
-  filter: blur(30px);
-}
-
-.card:hover::before {
-  transform: rotate(-90deg) scaleX(1.34) scaleY(0.77);
-}
-
-.card a {
-    text-decoration: none;
-}
-
-.card img {
-  width: 100%;
-  max-width: 300px;
-  height: auto;
-  border-radius: var(--border-radius-default);
-  transition: transform var(--transition-duration-normal);
-}
-
-.card:hover img {
-  transform: scale(1.05);
-}
-
-.card p.heading {
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: var(--spacing-small);
-  color: var(--text-color-light);
-}
 
 /* ====== Novels Grid Section ====== */
 #novels {
