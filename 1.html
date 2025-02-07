@@ -23,11 +23,7 @@
         <!-- Chapter List -->
         <div class="chapter-list">
             <h2>สารบัญ</h2>
-            <p>จำนวน <span id="total-chapters">0</span> พาร์ท</p>
-            <ul id="chapters">
-                <!-- Chapters will be dynamically added here -->
-            </ul>
-        </div>
+        
         <div class="card">
     <p><a href="the_one_part1.html" target="_blank"><span>Part 1 เรื่องราว</span></a></p>
     <p><a href="the_one_part2.html" target="_blank"><span>Part 2 อลิซ</span></a></p>
@@ -54,44 +50,6 @@
             { title: "พาร์ทที่ 2 : อลิซ", link: "the_one_part2.html" }
         ];
 
-        // Function to generate the chapter list
-        function generateChapterList() {
-            const chapterList = document.getElementById('chapters');
-            const totalChapters = document.getElementById('total-chapters');
-
-            // Clear existing list
-            chapterList.innerHTML = '';
-
-            // Check if there are any chapters
-            if (chapters.length === 0) {
-                chapterList.innerHTML = '<li>ไม่มีบทในตอนนี้</li>';
-                totalChapters.textContent = '0';
-                return;
-            }
-
-            // Add each chapter to the list
-            chapters.forEach((chapter, index) => {
-                const listItem = document.createElement('li');
-                const chapterLink = document.createElement('a');
-                chapterLink.href = chapter.link;
-                chapterLink.textContent = `${index + 1}. ${chapter.title}`; // Add chapter number
-                listItem.appendChild(chapterLink);
-                chapterList.appendChild(listItem);
-            });
-
-            // Update the chapter count
-            totalChapters.textContent = chapters.length;
-        }
-
-        // Function to handle the "Begin Reading" button
-        function beginReading() {
-            if (chapters.length > 0) {
-                // Redirect to the first chapter
-                window.location.href = chapters[0].link;
-            } else {
-                alert("ไม่มีบทที่สามารถอ่านได้ในตอนนี้");
-            }
-        }
 
         // Function to handle the "Back to Home" button
         function backToHome() {
@@ -145,6 +103,20 @@
         document.getElementById("textLoading").classList.add("hide");
     }, 2500);
 });
+
+let clickCount = 0;
+
+function handleClick(event) {
+    event.preventDefault(); // ป้องกันการเปิดลิงก์ทันที
+    clickCount++;
+    
+    if (clickCount === 2) {
+        window.open(event.target.href, "_blank");
+        clickCount = 0;
+    } else {
+        setTimeout(() => clickCount = 0, 300); // รีเซ็ตตัวนับหลัง 300 มิลลิวินาที
+    }
+}
     </script>
 </body>
 </html>
