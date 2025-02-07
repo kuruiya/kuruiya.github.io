@@ -44,8 +44,6 @@
 
     <!-- JavaScript -->
     <script>
-
-
         // Function to handle the "Back to Home" button
         function backToHome() {
             window.location.href = "index.html";
@@ -55,63 +53,61 @@
         document.getElementById('begin-reading-btn').addEventListener('click', beginReading);
         document.getElementById('back-to-home-btn').addEventListener('click', backToHome);
 
-        // Generate the chapter list when the page loads
-        window.onload = generateChapterList;
-         document.addEventListener("DOMContentLoaded", function () {
-    const loadingText = document.getElementById("loadingText");
-    const underline = document.getElementById("underline");
-    const text = "The One";
-    let index = 0;
-    let isDeleting = false;
+        document.addEventListener("DOMContentLoaded", function () {
+            const loadingText = document.getElementById("loadingText");
+            const underline = document.getElementById("underline");
+            const text = "The One";
+            let index = 0;
+            let isDeleting = false;
 
-    function typeEffect() {
-        if (!isDeleting) {
-            loadingText.textContent = text.slice(0, index + 1); // Type letters
-            index++;
+            function typeEffect() {
+                if (!isDeleting) {
+                    loadingText.textContent = text.slice(0, index + 1); // Type letters
+                    index++;
 
-            if (index === text.length) {
-                underline.style.width = "100%"; // Expand underline
-                setTimeout(() => {
-                    underline.style.animation = "bounce 0.5s ease-in-out"; // Bounce effect
-                }, 300); // Wait a bit before bouncing
+                    if (index === text.length) {
+                        underline.style.width = "100%"; // Expand underline
+                        setTimeout(() => {
+                            underline.style.animation = "bounce 0.5s ease-in-out"; // Bounce effect
+                        }, 300); // Wait a bit before bouncing
 
-                setTimeout(() => { isDeleting = true; }, 800); // Pause before deleting
+                        setTimeout(() => { isDeleting = true; }, 800); // Pause before deleting
+                    }
+                } else {
+                    loadingText.textContent = text.slice(0, index - 1); // Delete letters
+                    index--;
+
+                    if (index === 0) {
+                        underline.style.width = "0%"; // Shrink underline
+                        underline.style.animation = ""; // Remove bounce animation
+                        isDeleting = false; // Restart typing
+                    }
+                }
+
+                setTimeout(typeEffect, isDeleting ? 100 : 150); // Faster deleting
             }
-        } else {
-            loadingText.textContent = text.slice(0, index - 1); // Delete letters
-            index--;
 
-            if (index === 0) {
-                underline.style.width = "0%"; // Shrink underline
-                underline.style.animation = ""; // Remove bounce animation
-                isDeleting = false; // Restart typing
+            typeEffect(); // Start animation
+
+            // Hide loading screen after 2.5 seconds
+            setTimeout(() => {
+                document.getElementById("textLoading").classList.add("hide");
+            }, 2500);
+        });
+
+        let clickCount = 0;
+
+        function handleClick(event) {
+            event.preventDefault(); // ป้องกันการเปิดลิงก์ทันที
+            clickCount++;
+
+            if (clickCount === 2) {
+                window.open(event.currentTarget.href, "_blank");
+                clickCount = 0;
+            } else {
+                setTimeout(() => clickCount = 0, 300); // รีเซ็ตตัวนับหลัง 300 มิลลิวินาที
             }
         }
-
-        setTimeout(typeEffect, isDeleting ? 100 : 150); // Faster deleting
-    }
-
-    typeEffect(); // Start animation
-
-    // Hide loading screen after 2.5 seconds
-    setTimeout(() => {
-        document.getElementById("textLoading").classList.add("hide");
-    }, 2500);
-});
-
-let clickCount = 0;
-
-function handleClick(event) {
-    event.preventDefault(); // ป้องกันการเปิดลิงก์ทันที
-    clickCount++;
-
-    if (clickCount === 2) {
-        window.open(event.target.href, "_blank");
-        clickCount = 0;
-    } else {
-        setTimeout(() => clickCount = 0, 300); // รีเซ็ตตัวนับหลัง 300 มิลลิวินาที
-    }
-}
     </script>
 </body>
 </html>
