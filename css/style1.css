@@ -1,9 +1,10 @@
-/* ธีมมืดสำหรับ GitHub พร้อม pattern */
 body {
     background-color: #0d1117;
-    background-image: url('../asset/image/the-one/bg.jpg'); /* เติม pattern */
+    background-image: url('../asset/image/the-one/bg.jpg');
+    background-size: cover;
+    background-position: center;
     color: #c9d1d9;
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,9 +25,10 @@ a:hover {
     text-align: center;
     border: 2px solid #30363d;
     padding: 20px;
-    border-radius: 10px;
-    max-width: 800px;
-    background-color: rgba(255, 255, 255, 0.1); /* ทำให้สีสว่างขึ้นเล็กน้อย */
+    border-radius: 15px;
+    max-width: 90%;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
 }
 
 .card-container {
@@ -38,62 +40,56 @@ a:hover {
 
 .card {
     border: 1px solid #30363d;
-    border-radius: 8px;
-    padding: 20px;
-    margin: 10px;
-    width: 150px;
+    border-radius: 12px;
+    padding: 30px;
+    margin: 15px;
+    width: 120px;
     text-align: center;
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
+    background-color: #1f77b4;
 }
 
-/* สีน้ำเงิน, แดง, เขียว, เหลือง, ม่วง, และสีอื่น ๆ */
-.card:nth-child(1) { background-color: #1f77b4; }
-.card:nth-child(2) { background-color: #ff7f0e; }
-.card:nth-child(3) { background-color: #2ca02c; }
-.card:nth-child(4) { background-color: #d62728; }
-.card:nth-child(5) { background-color: #9467bd; }
+.card:nth-child(even) {
+    background-color: #ff7f0e;
+}
 
-/* การ์ดเป็นสันหนังสือ */
 .card p {
     writing-mode: vertical-rl;
     transform: rotate(180deg);
-    color: #4b3832; /* สีน้ำตาลเข้มเกือบเท่าดำ */
-    font-family: 'Comic Sans MS', 'Comic Neue', sans-serif; /* ฟอนต์ที่มีความเป็น comic */
+    color: #f0f6fc;
+    font-family: 'Comic Neue', sans-serif;
 }
 
-/* ขยายเมื่อกดคลิก */
 .card.active {
     transform: scale(1.1);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
-/* ธีมมืด */
 .button-container a {
     background-color: #21262d;
     color: #58a6ff;
-    padding: 10px 20px;
+    padding: 12px 25px;
     border-radius: 5px;
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
-/* ปุ่มสวยงาม */
 .button-container a:hover {
     background-color: #30363d;
-    transform: scale(1.1);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
 }
 
-/* สไตล์เพิ่มเติม */
 h1, h2 {
-    text-align: center;
+    color: #58a6ff;
     margin-top: 20px;
+    margin-bottom: 10px;
 }
 
-/* ระบบนับหนังสือ */
 .book-count {
     text-align: center;
-    margin-top: 10px;
-    font-size: 1.2em;
-    color: #58a6ff;
+    margin-top: 15px;
+    font-size: 1.5em;
+    color: #f0f6fc;
 }
+
