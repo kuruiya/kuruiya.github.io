@@ -33,37 +33,36 @@ a:hover {
 
 .card-container {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     padding: 20px;
 }
 
 .card {
     border: 1px solid #30363d;
-    border-radius: 12px;
-    padding: 30px;
-    margin: 15px;
-    width: 120px;
-    text-align: center;
+    border-radius: 2px;
+    margin: 0 5px;
+    width: 40px;
+    height: 200px;
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
     background-color: #1f77b4;
-}
-
-.card:nth-child(even) {
-    background-color: #ff7f0e;
-}
-
-.card p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     writing-mode: vertical-rl;
     transform: rotate(180deg);
     color: #f0f6fc;
     font-family: 'Comic Neue', sans-serif;
 }
 
+.card:nth-child(even) {
+    background-color: #ff7f0e;
+}
+
 .card.active {
-    transform: scale(1.1);
+    transform: scale(1.1) rotate(180deg);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    z-index: 1;
 }
 
 .button-container a {
@@ -88,8 +87,4 @@ h1, h2 {
 
 .book-count {
     text-align: center;
-    margin-top: 15px;
-    font-size: 1.5em;
-    color: #f0f6fc;
-}
-
+    margin-top: 
