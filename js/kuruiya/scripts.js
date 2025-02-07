@@ -1,17 +1,17 @@
 document.addEventListener("DOMContentLoaded", function() {
     const cards = document.querySelectorAll(".card");
-
+    
     cards.forEach(card => {
-        card.addEventListener("click", function(event) {
-            if (event.target.tagName === 'A') {
-                return; // ไม่ทำอะไรถ้าคลิกที่ลิงก์
-            }
-
-            if (card.classList.contains("expanded")) {
-                window.location.href = card.getAttribute("data-link");
-            } else {
-                cards.forEach(c => c.classList.remove("expanded")); // หดการ์ดอื่นที่ขยาย
-                card.classList.add("expanded");
+        let clickCount = 0;
+        
+        card.addEventListener("click", function() {
+            clickCount++;
+            
+            if (clickCount === 1) {
+                card.classList.add("card-clicked");
+                setTimeout(() => clickCount = 0, 500); // รีเซ็ตคลิกหลังจาก 500 มิลลิวินาที
+            } else if (clickCount === 2) {
+                window.location.href = card.querySelector("a").href;
             }
         });
     });
