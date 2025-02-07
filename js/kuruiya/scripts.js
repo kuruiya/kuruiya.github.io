@@ -1,5 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
     const cards = document.querySelectorAll(".card");
+    const bookCountElement = document.getElementById("book-count");
+    
+    // แสดงจำนวนหนังสือ
+    bookCountElement.textContent = `จำนวนหนังสือ: ${cards.length}`;
     
     cards.forEach(card => {
         card.addEventListener("click", function() {
