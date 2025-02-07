@@ -22,13 +22,15 @@
             </div>
             <!-- Navigation Bar -->
             <nav id="navBar">
-                <ul>
-                    <li><a href="#featured">Featured</a></li>
-                    <li><a href="#novels">Novels</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+    <ul>
+        <li><a href="#featured" class="smooth-scroll">Featured</a></li>
+        <li><a href="#novels" class="smooth-scroll">Novels</a></li>
+        <li><a href="#about" class="smooth-scroll">About</a></li>
+        <li><a href="#contact" class="smooth-scroll">Contact</a></li>
+    </ul>
+</nav>
+
+
         </header>
 
         <!-- Main Content Section -->
@@ -166,55 +168,59 @@
     <!-- JavaScript for Compass Icon, Navigation Toggle, Smooth Scrolling, Dynamic Year,
          Loading Spinner, and Animated Series Reveal -->
     <script>
-        // Toggle navigation bar visibility
-        const compassIcon = document.getElementById('compassIcon');
-        const navBar = document.getElementById('navBar');
+  // Toggle navigation bar visibility
+ const compassIcon = document.getElementById('compassIcon');
+ const navBar = document.getElementById('navBar');
 
-        compassIcon.addEventListener('click', () => {
-            navBar.classList.toggle('active');
-            compassIcon.classList.toggle('active');
-        });
+ compassIcon.addEventListener('click', () => {
+     navBar.classList.toggle('active');
+     compassIcon.classList.toggle('active');
+ });
 
-        // Smooth scrolling with offset for fixed header
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+ // Smooth scrolling with offset for fixed header
+ document.querySelectorAll('a.smooth-scroll[href^="#"]').forEach(anchor => {
+     anchor.addEventListener('click', function (e) {
+         e.preventDefault();
 
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
+         const targetId = this.getAttribute('href');
+         const targetElement = document.querySelector(targetId);
 
-                if (targetElement) {
-                    const offset = 80; // Adjust this value to match your header height
-                    const targetPosition = targetElement.offsetTop - offset;
+         if (targetElement) {
+             const offset = 80; // Adjust this value to match your header height
+             const targetPosition = targetElement.offsetTop - offset;
 
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
+             window.scrollTo({
+                 top: targetPosition,
+                 behavior: 'smooth'
+             });
+         } else {
+             console.error(`Target element with id '${targetId}' not found.`); // Error handling
+         }
+     });
+ });
 
-        // Dynamic year for footer
-        document.getElementById('current-year').textContent = new Date().getFullYear();
+ // Dynamic year for footer
+ document.getElementById('current-year').textContent = new Date().getFullYear();
 
-      document.addEventListener("DOMContentLoaded", function () {
-    const loadingspinner = document.getElementById("loadingspinner");
+ document.addEventListener("DOMContentLoaded", function () {
+     const loadingspinner = document.querySelector(".loadingspinner"); // Corrected selector
 
-    // Show loading animation for 1.5 seconds
-    setTimeout(() => {
-        loadingspinner.classList.add("hide");
-    }, 1500);
-});
+     // Show loading animation for 1.5 seconds
+     setTimeout(() => {
+         loadingspinner.classList.add("hide");
+     }, 1500);
+ });
 
-function openLetter() {
-    let envelope = document.querySelector(".envelope-container");
-    envelope.classList.add("open");
+ function openLetter() {
+     let envelope = document.querySelector(".envelope-container");
+     envelope.classList.add("open");
 
-    // ลิ้งไปหน้าเว็บใหม่หลังจาก 1 วินาที
-    setTimeout(() => {
-    window.open("https://cayman1q.github.io/#", "_blank");
-}, 1000);
+     // ลิ้งไปหน้าเว็บใหม่หลังจาก 1 วินาที
+     setTimeout(() => {
+         window.open("https://cayman1q.github.io/#", "_blank");
+     }, 1000);
+ }
+
 
     </script>
 </body>
