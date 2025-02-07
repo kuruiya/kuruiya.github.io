@@ -205,19 +205,20 @@ main {
   position: relative;
   width: 90%;
   max-width: 350px;
-  background-color: #000;
+  background-color: var(--github-element-background); /* Use GitHub element background */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: var(--spacing-medium);
-  gap: 12 px;
-  border-radius: 8 px;
+  gap: var(--spacing-small);
+  border-radius: var(--border-radius-default);
   cursor: pointer;
-  color: var(--text-color-light);
+  color: var(--github-text-color);         /* Use GitHub text color */
   text-align: center;
   overflow: hidden;
   transition: transform var(--transition-duration-normal), box-shadow var(--transition-duration-normal);
+    border: 1px solid var(--github-border-color);
 }
 
 .card::before,
@@ -232,18 +233,20 @@ main {
 }
 
 .card::before {
-  background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100%);
+    /*gradient to a lighter shade*/
+  background: linear-gradient(-45deg, #3e526e 0%, var(--github-element-background) 100%);
 }
 
 .card::after {
-  background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100%);
+    /*gradient to a darker shade*/
+  background: linear-gradient(-45deg, var(--github-element-background) 0%, #000000 100%);
   transform: translate3d(0, 0, 0) scale(0.95);
   filter: blur(20px);
 }
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
 }
 
 .card:hover::after {
@@ -274,7 +277,7 @@ main {
   font-size: 1.3rem;
   font-weight: 600;
   margin-bottom: var(--spacing-small);
-  color: var(--text-color-light);
+  color: var(--github-text-color);         /* Use GitHub text color */
 }
 
 /* ====== Loading Spinner ====== */
@@ -963,5 +966,5 @@ footer {
 
   .about-section p {
     text-align: left
-  }
+   }
 }
