@@ -9,13 +9,13 @@
 
 :root {
    /* Dark Blue Brand Colors */
-  --primary-color: #191970; /* Midnight Blue */
-  --secondary-color: #36454F; /* Charcoal */
-  --accent-color: #ADD8E6; /* Light Blue */
-  --text-color-dark: #f0f8ff; /* Alice Blue */
-  --text-color-light: #e6e6fa; /* Lavender */
-  --background-light: #f0f8ff; /* Alice Blue */
-  --background-dark: #2f4f4f; /* Dark Slate Gray */
+  --primary-color: #001f3f; /* Dark Navy */
+  --secondary-color: #003366; /* Darker Blue */
+  --accent-color: #4682B4; /* Steel Blue (for subtle highlights) */
+  --text-color-dark: #ddd; /* Light Gray */
+  --text-color-light: #eee; /* Slightly lighter gray */
+  --background-light: #121212; /* Dark background */
+  --background-dark: #080808; /*even darker background*/
 
   /* Typography */
   --font-family-base: 'Noto Serif Thai', serif;
