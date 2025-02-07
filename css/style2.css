@@ -150,7 +150,7 @@ nav a:hover::after {
 
   nav {
     opacity: 0;
-    visibility: hidden;
+    /* visibility: hidden;  <-- REMOVE THIS LINE */
     position: absolute;
     top: calc(100% + var(--spacing-small)); /* Position below the header */
     left: 0;
@@ -159,11 +159,12 @@ nav a:hover::after {
     padding: var(--spacing-medium);
     box-shadow: var(--box-shadow-default);
     text-align: center;
+    transition: all var(--transition-duration-normal);  /* Ensure transition is present */
   }
 
   nav.active {
     opacity: 1;
-    visibility: visible;
+    visibility: visible; /* Keep this to ensure the element is rendered */
   }
 
   nav ul {
@@ -174,6 +175,7 @@ nav a:hover::after {
     margin: var(--spacing-small) 0;
   }
 }
+
 
 /* ====== Main Content ====== */
 main {
