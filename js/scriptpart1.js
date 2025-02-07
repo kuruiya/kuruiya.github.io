@@ -22,8 +22,7 @@ function nextPage() {
 }
 
 function goHome() {
-    currentPage = 1;
-    updateContent();
+    window.location.href = "1.html";
 }
 
 function goToPage() {
