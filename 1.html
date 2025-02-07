@@ -23,10 +23,10 @@
         <!-- Chapter List -->
         <div class="chapter-list">
             <h2>สารบัญ</h2>
-        
+
         <div class="card">
-    <p><a href="the_one_part1.html" target="_blank"><span>Part 1 เรื่องราว</span></a></p>
-    <p><a href="the_one_part2.html" target="_blank"><span>Part 2 อลิซ</span></a></p>
+    <p><a href="the_one_part1.html" target="_blank" onclick="handleClick(event)"><span>Part 1 เรื่องราว</span></a></p>
+    <p><a href="the_one_part2.html" target="_blank" onclick="handleClick(event)"><span>Part 2 อลิซ</span></a></p>
 </div>
 
         <!-- Begin Reading Button -->
@@ -44,11 +44,6 @@
 
     <!-- JavaScript -->
     <script>
-        // Chapter Data (Replace with your actual chapter titles and links)
-        const chapters = [
-            { title: "พาร์ทที่ 1 : เรื่องราว", link: "the_one_part1.html" },
-            { title: "พาร์ทที่ 2 : อลิซ", link: "the_one_part2.html" }
-        ];
 
 
         // Function to handle the "Back to Home" button
@@ -109,7 +104,7 @@ let clickCount = 0;
 function handleClick(event) {
     event.preventDefault(); // ป้องกันการเปิดลิงก์ทันที
     clickCount++;
-    
+
     if (clickCount === 2) {
         window.open(event.target.href, "_blank");
         clickCount = 0;
