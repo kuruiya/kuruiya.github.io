@@ -1,229 +1,53 @@
-/* Basic Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Variables */
-:root {
-    --main-bg-color: #24292e; /* Dark GitHub theme background color */
-    --main-text-color: #ffffff; /* White text color */
-    --secondary-bg-color: #2d333b; /* Lighter dark background */
-    --border-color: #444d56; /* Border color */
-    --hover-color: #0366d6; /* GitHub blue for hover */
-}
-
-/* Basic Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Full-screen Loading Overlay */
-.text-loading {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #222;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 3rem;
-    font-weight: bold;
-    color: white;
-    font-family: "Noto Serif Thai", serif;
-    z-index: 9999;
-}
-
-/* Text and Underline Container */
-.text-container {
-    position: relative;
-    display: inline-block;
-    text-align: center;
-}
-
-/* Underline */
-#underline {
-    width: 0%;
-    height: 4px;
-    background: white;
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    transition: width 0.3s ease-in-out;
-}
-
-/* Bounce Effect */
-@keyframes bounce {
-    0% { transform: scaleX(1); }
-    30% { transform: scaleX(1.2); }
-    60% { transform: scaleX(0.9); }
-    100% { transform: scaleX(1); }
-}
-
-/* Hide loading screen */
-.text-loading.hide {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
-}
-
-/* Global Styles */
+/* สไตล์ CSS แบบ GitHub */
 body {
-    background-color: var(--main-bg-color);
-    color: var(--main-text-color);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-    line-height: 1.5;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    background-color: #f6f8fa;
+    color: #24292e;
     margin: 0;
+    padding: 20px;
+}
+
+.book-list {
+    list-style: none;
     padding: 0;
-    display: flex;
-    flex-direction: column; /* Ensure footer sticks to bottom */
-    min-height: 100vh; /* Ensure body covers full viewport height */
 }
 
-.container {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 20px;
-    flex: 1; /* Allow main content to expand */
-}
-
-/* Header */
-header {
-    background-color: var(--secondary-bg-color);
-    padding: 20px;
-    border-bottom: 1px solid var(--border-color);
-    text-align: center;
-}
-
-header h1 {
-    margin: 0;
-    color: var(--main-text-color);
-}
-
-header p {
-    margin: 5px 0 0;
-    color: var(--main-text-color);
-}
-
-/* Chapter List */
-.chapter-list {
-    background-color: var(--secondary-bg-color);
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-}
-
-.chapter-list h2 {
+.book-item {
+    background-color: #ffffff;
     margin-bottom: 10px;
-    color: var(--main-text-color);
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(27,31,35,0.12), 0 1px 2px rgba(27,31,35,0.24);
+    border: 1px solid #e1e4e8;
 }
 
-.card {
-    width: 100%;
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.card p {
-    width: 210px;
-    height: 254px;
-    background: var(--secondary-bg-color);
-    border-radius: 4px;
-    border: 1px solid var(--border-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-    cursor: pointer;
-    overflow: hidden;
-    transition: all .5s;
-}
-
-.card p:hover {
-    flex: 4;
-}
-
-.card p span {
-    min-width: 14em;
-    padding: .5em;
-    text-align: center;
-    transform: rotate(-90deg);
-    transition: all .5s;
-    text-transform: uppercase;
-    color: var(--hover-color);
-    letter-spacing: .1em;
-}
-
-.card p:hover span {
-    transform: rotate(0);
-}
-
-.card a {
+.book-link {
     text-decoration: none;
-    color: inherit;
-    display: block;
-    width: 100%;
-    height: 100%;
+    color: #0366d6;
 }
 
-.card a:hover {
-    text-decoration: none;
+.book-link:hover {
+    text-decoration: underline;
 }
 
-/* Buttons */
-.controls {
-    text-align: center;
-    margin-bottom: 20px;
+/* สไตล์ปุ่มกลับหน้าแรก */
+.button-container {
+    margin-top: 20px;
 }
 
-button {
-    background-color: var(--hover-color);
-    color: var(--main-text-color);
+.home-button {
+    background-color: #0366d6;
+    color: #ffffff;
     border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-    margin: 0 10px;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #0056b3; /* Darker blue for hover effect */
-}
-
-/* Footer */
-footer {
-    background-color: var(--secondary-bg-color);
-    padding: 10px;
-    border-top: 1px solid var(--border-color);
+    padding: 10px 20px;
     text-align: center;
-    margin-top: auto; /* Push the footer to the bottom */
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-footer p {
-    margin: 0;
-    color: var(--main-text-color);
-}
-
-/* Responsive Styles */
-@media screen and (max-width: 600px) {
-    .container {
-        padding: 10px;
-    }
-
-    header h1 {
-        font-size: 1.5em;
-    }
-
-    .controls button {
-        margin: 5px;
-        padding: 8px 12px;
-        font-size: 0.9em;
-    }
+.home-button:hover {
+    background-color: #005cc5;
 }
