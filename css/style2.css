@@ -278,60 +278,74 @@ main {
 }
 
 /* Featured Section */
-.featured-section {
-    background-color: var(--main-color);
-    padding: var(--spacing-unit);
-    border-radius: 8px;
-    margin-bottom: var(--spacing-unit);
-    color: white;
+.card {
+  position: relative;
+  width: 190px;
+  height: 254px;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  padding: 12px;
+  gap: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
 }
 
-.featured-card {
-    display: flex;
-    flex-direction: column; /* Stack vertically on mobile */
-    align-items: center;
-    gap: var(--spacing-unit);
-    text-align: center; /* Center text on mobile */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  left: -5px;
+  margin: auto;
+  width: 200px;
+  height: 264px;
+  border-radius: 10px;
+  background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100% );
+  z-index: -10;
+  pointer-events: none;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.featured-thumbnail {
-    width: 100%; /* Full width on mobile */
-    max-width: 300px; /* Limit maximum width */
-    height: auto;
-    border-radius: 8px;
+.card::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100% );
+  transform: translate3d(0, 0, 0) scale(0.95);
+  filter: blur(20px);
 }
 
-.featured-info {
-    flex: 1;
+.heading {
+  font-size: 20px;
+  text-transform: capitalize;
+  font-weight: 700;
 }
 
-.featured-title {
-    font-size: 1.5em; /* Smaller font size for mobile */
-    margin-bottom: 10px;
+.card p:not(.heading) {
+  font-size: 14px;
 }
 
-.featured-author {
-    font-weight: 600;
-    margin-bottom: 10px;
+.card p:last-child {
+  color: #e81cff;
+  font-weight: 600;
 }
 
-.featured-description {
-    margin-bottom: var(--spacing-unit);
+.card:hover::after {
+  filter: blur(30px);
 }
 
-.btn-read {
-    display: inline-block;
-    background-color: var(--hover-color);
-    color: white;
-    padding: 10px 15px;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+.card:hover::before {
+  transform: rotate(-90deg) scaleX(1.34) scaleY(0.77);
+}
+.card img {
+  width: 100%; /* รูปภาพจะมีความกว้างเท่ากับ card */
+  height: auto; /* ความสูงจะปรับตามสัดส่วนของภาพ */
 }
 
-.btn-read:hover {
-    background-color: #8B4513;
-}
+
 
 /* Novels Grid Section */
 .video-grid {
