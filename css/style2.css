@@ -8,14 +8,21 @@
 }
 
 :root {
-   /* Dark Blue Brand Colors */
-  --primary-color: #001f3f; /* Dark Navy */
-  --secondary-color: #003366; /* Darker Blue */
-  --accent-color: #4682B4; /* Steel Blue (for subtle highlights) */
-  --text-color-dark: #ddd; /* Light Gray */
-  --text-color-light: #eee; /* Slightly lighter gray */
-  --background-light: #121212; /* Dark background */
-  --background-dark: #080808; /*even darker background*/
+  /* --- Existing Variables (Keep these) --- */
+  --primary-color: #1f2937;
+  --secondary-color: #242c38;
+  --accent-color: #4682B4;
+  --text-color-dark: #ddd;
+  --text-color-light: #eee;
+  --background-light: #121212;
+  --background-dark: #080808;
+
+  /* --- GitHub Inspired Theme Variables --- */
+  --github-background: #0d1117;        /* GitHub's dark background */
+  --github-element-background: #161b22; /* Lighter background for elements */
+  --github-text-color: #c9d1d9;         /* General text color */
+  --github-primary: #58a6ff;           /* GitHub's blue color */
+  --github-border-color: #30363d;       /* Border color used by GitHub */
 
   /* Typography */
   --font-family-base: 'Noto Serif Thai', serif;
@@ -29,7 +36,7 @@
   --spacing-large: 2rem;
 
   /* Shadows & Effects */
-  --box-shadow-default: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  --box-shadow-default: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.5);
   --border-radius-default: 0.5rem;
   --transition-duration-fast: 0.2s;
   --transition-duration-normal: 0.3s;
@@ -40,8 +47,8 @@ body {
   font-family: var(--font-family-base);
   font-size: var(--font-size-base);
   line-height: var(--line-height-base);
-  color: var(--text-color-dark);
-  background-color: var(--background-light);
+  color: var(--github-text-color);      /* Use GitHub text color */
+  background-color: var(--github-background); /* Use GitHub background */
   margin: 0;
   padding: 0;
 }
@@ -55,8 +62,8 @@ body {
 
 /* ====== Header Section ====== */
 header {
-  background-color: var(--background-dark);
-  color: var(--text-color-light);
+  background-color: var(--github-element-background); /*GitHub element bg*/
+  color: var(--github-text-color); /*GitHub text color*/
   text-align: center;
   padding: var(--spacing-large) 0;
   position: fixed;
@@ -65,18 +72,19 @@ header {
   width: 100%;
   z-index: 1000;
   box-shadow: var(--box-shadow-default);
+  border-bottom: 1px solid var(--github-border-color);
 }
 
 header h1 {
   font-size: var(--font-size-large);
   margin-bottom: var(--spacing-small);
-  color: var(--text-color-light);
+  color: var(--github-text-color); /*GitHub text color*/
 }
 
 header p {
   font-size: 1.1rem;
   margin-bottom: var(--spacing-large);
-  color: var(--text-color-light);
+  color: var(--github-text-color); /*GitHub text color*/
 }
 
 /* ====== Compass Icon ====== */
@@ -84,7 +92,7 @@ header p {
   display: none;
   cursor: pointer;
   font-size: 2rem;
-  color: var(--text-color-light);
+  color: var(--github-text-color); /*GitHub text color*/
   position: absolute;
   top: var(--spacing-medium);
   right: var(--spacing-medium);
@@ -113,7 +121,7 @@ nav li {
 }
 
 nav a {
-  color: var(--text-color-light);
+  color: var(--github-text-color);      /* Use GitHub text color */
   text-decoration: none;
   font-weight: 600;
   position: relative;
@@ -134,7 +142,7 @@ nav a::after {
 }
 
 nav a:hover {
-  color: var(--accent-color);
+  color: var(--github-primary);  /* Use GitHub primary on hover */
 }
 
 nav a:hover::after {
@@ -155,11 +163,12 @@ nav a:hover::after {
     top: calc(100% + var(--spacing-small)); /* Position below the header */
     left: 0;
     width: 100%;
-    background-color: var(--primary-color);
+    background-color: var(--github-element-background); /* Use GitHub element background */
     padding: var(--spacing-medium);
     box-shadow: var(--box-shadow-default);
     text-align: center;
     transition: all var(--transition-duration-normal);  /* Ensure transition is present */
+      border: 1px solid var(--github-border-color);
   }
 
   nav.active {
@@ -196,7 +205,7 @@ main {
   position: relative;
   width: 90%;
   max-width: 350px;
-  background-color: #000;
+  background-color: var(--github-element-background); /* Use GitHub element background */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -205,10 +214,11 @@ main {
   gap: var(--spacing-small);
   border-radius: var(--border-radius-default);
   cursor: pointer;
-  color: var(--text-color-light);
+  color: var(--github-text-color);         /* Use GitHub text color */
   text-align: center;
   overflow: hidden;
   transition: transform var(--transition-duration-normal), box-shadow var(--transition-duration-normal);
+    border: 1px solid var(--github-border-color);
 }
 
 .card::before,
@@ -223,18 +233,20 @@ main {
 }
 
 .card::before {
-  background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100%);
+    /*gradient to a lighter shade*/
+  background: linear-gradient(-45deg, #3e526e 0%, var(--github-element-background) 100%);
 }
 
 .card::after {
-  background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100%);
+    /*gradient to a darker shade*/
+  background: linear-gradient(-45deg, var(--github-element-background) 0%, #000000 100%);
   transform: translate3d(0, 0, 0) scale(0.95);
   filter: blur(20px);
 }
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
 }
 
 .card:hover::after {
@@ -265,12 +277,11 @@ main {
   font-size: 1.3rem;
   font-weight: 600;
   margin-bottom: var(--spacing-small);
-  color: var(--text-color-light);
+  color: var(--github-text-color);         /* Use GitHub text color */
 }
 
 /* ====== Loading Spinner ====== */
 .loadingspinner {
-  /* (Your loading spinner styles - keep as is) */
   --square: 26px;
   --offset: 30px;
   --duration: 2.4s;
@@ -291,9 +302,7 @@ main {
 
 .loadingspinner div {
   display: inline-block;
-  background: darkorange;
-  /*background: var(--text-color);*/
-  /*box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);*/
+  background: var(--github-primary); /* Use accent color for visibility */
   border: none;
   border-radius: 2px;
   width: var(--square);
@@ -540,17 +549,18 @@ main {
 }
 
 .video-card {
-  background-color: #fff;
+  background-color: var(--github-element-background);/*GitHub element bg*/
   border-radius: var(--border-radius-default);
   overflow: hidden;
   box-shadow: var(--box-shadow-default);
   transition: transform var(--transition-duration-normal), box-shadow var(--transition-duration-normal);
   position: relative;
+    border: 1px solid var(--github-border-color);
 }
 
 .video-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
 }
 
 .video-thumbnail {
@@ -570,7 +580,7 @@ main {
   font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: var(--spacing-small);
-  color: var(--text-color-dark);
+  color: var(--github-text-color); /*GitHub text color*/
 }
 
 .video-author {
@@ -586,7 +596,7 @@ main {
 .read-button {
   display: inline-block;
   padding: var(--spacing-small) var(--spacing-medium);
-  background-color: var(--primary-color);
+  background-color: var(--github-primary);
   color: var(--text-color-light);
   text-decoration: none;
   border-radius: var(--border-radius-default);
@@ -605,18 +615,19 @@ main {
 
 /* ====== Reviews Section ====== */
 #reviews {
-  background-color: var(--primary-color);
+  background-color: var(--github-element-background); /*GitHub element bg*/
   padding: var(--spacing-large);
   border-radius: var(--border-radius-default);
   margin-bottom: var(--spacing-large);
-  color: var(--text-color-light);
+  color: var(--github-text-color); /*GitHub text color*/
+    border: 1px solid var(--github-border-color);
 }
 
 #reviews h2 {
   font-size: 2rem;
   margin-bottom: var(--spacing-large);
   text-align: center;
-  color: var(--text-color-light);
+  color: var(--github-text-color); /*GitHub text color*/
 }
 
 .review-card {
@@ -625,8 +636,9 @@ main {
   border-radius: var(--border-radius-default);
   margin-bottom: var(--spacing-medium);
   box-shadow: var(--box-shadow-default);
-  color: var(--text-color-light);
+  color: var(--github-text-color); /*GitHub text color*/
   font-style: italic;
+    border: 1px solid var(--github-border-color);
 }
 
 .review-card p {
@@ -663,17 +675,18 @@ main {
 }
 
 .blog-section article {
-  background-color: #fff;
+  background-color: var(--github-element-background);/*GitHub element bg*/
   border-radius: var(--border-radius-default);
   margin-bottom: var(--spacing-large);
   box-shadow: var(--box-shadow-default);
   padding: var(--spacing-medium);
   transition: transform var(--transition-duration-normal), box-shadow var(--transition-duration-normal);
+    border: 1px solid var(--github-border-color);
 }
 
 .blog-section article:hover {
   transform: translateY(-3px);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
 }
 
 .blog-post h3 {
@@ -711,7 +724,7 @@ main {
 }
 
 .blog-post p {
-  color: #555;
+  color: var(--github-text-color);/*GitHub text color*/
   line-height: 1.4;
 }
 
@@ -729,7 +742,7 @@ main {
   width: 100%;
   height: 100%;
   position: absolute;
-  background: #c0392b;
+  background: var(--github-primary);/*GitHub element bg*/
   border-radius: var(--border-radius-default);
   display: flex;
   justify-content: center;
@@ -747,7 +760,7 @@ main {
 .letter {
   width: 100%;
   height: 100%;
-  background: white;
+  background: #333;
   border-radius: var(--border-radius-default);
   position: absolute;
   top: 0;
@@ -757,7 +770,7 @@ main {
   align-items: center;
   font-size: 1em;
   font-weight: bold;
-  color: #333;
+  color: var(--github-text-color);/*GitHub text color*/
   transform: rotateX(-90deg);
   transform-origin: top;
   transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
@@ -816,11 +829,12 @@ main {
 }
 
 .faq-item {
-  background-color: #fff;
+  background-color: var(--github-element-background);/*GitHub element bg*/
   border-radius: var(--border-radius-default);
   margin-bottom: var(--spacing-large);
   box-shadow: var(--box-shadow-default);
   padding: var(--spacing-medium);
+    border: 1px solid var(--github-border-color);
 }
 
 .faq-item h3 {
@@ -830,7 +844,7 @@ main {
 }
 
 .faq-item p {
-  color: #555;
+  color: var(--github-text-color);/*GitHub text color*/
   line-height: 1.4;
 }
 
@@ -849,7 +863,7 @@ main {
 .about-section p {
   font-size: 1.1rem;
   line-height: 1.6;
-  color: #555;
+  color:  var(--github-text-color);/*GitHub text color*/
   padding: 0 var(--spacing-medium);
   text-align: center;
 }
@@ -877,13 +891,15 @@ main {
 
 .contact-section label {
   font-weight: 600;
-  color: var(--text-color-dark);
+  color: var(--github-text-color);/*GitHub text color*/
 }
 
 .contact-section input,
 .contact-section textarea {
   padding: var(--spacing-small);
-  border: 1px solid #ccc;
+  border: 1px solid #555; /* Darker border */
+  background-color: #333; /* Darker input background */
+  color: var(--github-text-color);/*GitHub text color*/
   border-radius: var(--border-radius-default);
   font-size: 1rem;
   font-family: var(--font-family-base);
@@ -895,7 +911,7 @@ main {
 
 .contact-section button {
   padding: var(--spacing-small) var(--spacing-medium);
-  background-color: var(--primary-color);
+  background-color: var(--github-primary); /*GitHub's blue*/
   color: var(--text-color-light);
   border: none;
   border-radius: var(--border-radius-default);
@@ -914,8 +930,9 @@ main {
 footer {
   text-align: center;
   padding: var(--spacing-large) 0;
-  background-color: var(--background-dark);
-  color: var(--text-color-light);
+  background-color: var(--github-background);/*GitHub background*/
+  color: var(--github-text-color);/*GitHub text color*/
+    border-top: 1px solid var(--github-border-color);
 }
 
 .social-links {
@@ -923,14 +940,14 @@ footer {
 }
 
 .social-links a {
-  color: var(--text-color-light);
+  color: var(--github-text-color); /*GitHub text color*/
   margin: 0 var(--spacing-small);
   font-size: 1.5rem;
   transition: color var(--transition-duration-fast);
 }
 
 .social-links a:hover {
-  color: var(--accent-color);
+  color: var(--github-primary);/*GitHub's blue*/
 }
 
 /* ====== Responsive Styles ====== */
@@ -948,6 +965,6 @@ footer {
   }
 
   .about-section p {
-    text-align: left;
+    text-align: left
   }
 }
