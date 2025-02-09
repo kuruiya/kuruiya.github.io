@@ -60,10 +60,10 @@ body {
   padding: var(--spacing-medium);
 }
 
-/* ====== Header Section ====== */
+/* ====== Header Styles ====== */
 header {
-  background-color: var(--github-element-background); /*GitHub element bg*/
-  color: var(--github-text-color); /*GitHub text color*/
+  background-color: var(--github-element-background); /* GitHub element bg */
+  color: var(--github-text-color); /* GitHub text color */
   text-align: center;
   padding: var(--spacing-large) 0;
   position: fixed;
@@ -73,18 +73,37 @@ header {
   z-index: 1000;
   box-shadow: var(--box-shadow-default);
   border-bottom: 1px solid var(--github-border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .login-button {
+  margin-right: auto;
+}
+
+header .btn-login {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+header .btn-login:hover {
+  background-color: #555;
 }
 
 header h1 {
   font-size: var(--font-size-large);
   margin-bottom: var(--spacing-small);
-  color: var(--github-text-color); /*GitHub text color*/
+  color: var(--github-text-color); /* GitHub text color */
 }
 
 header p {
   font-size: 1.1rem;
   margin-bottom: var(--spacing-large);
-  color: var(--github-text-color); /*GitHub text color*/
+  color: var(--github-text-color); /* GitHub text color */
 }
 
 /* ====== Compass Icon ====== */
@@ -92,7 +111,7 @@ header p {
   display: none;
   cursor: pointer;
   font-size: 2rem;
-  color: var(--github-text-color); /*GitHub text color*/
+  color: var(--github-text-color); /* GitHub text color */
   position: absolute;
   top: var(--spacing-medium);
   right: var(--spacing-medium);
@@ -101,22 +120,6 @@ header p {
 
 .compass-icon.active {
   transform: rotate(360deg);
-}
-
-header .login-button {
-    margin-right: auto;
-}
-
-header .btn-login {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 15px;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-header .btn-login:hover {
-    background-color: #555;
 }
 
 /* ====== Navigation Bar ====== */
@@ -137,7 +140,7 @@ nav li {
 }
 
 nav a {
-  color: var(--github-text-color);      /* Use GitHub text color */
+  color: var(--github-text-color); /* Use GitHub text color */
   text-decoration: none;
   font-weight: 600;
   position: relative;
@@ -158,7 +161,7 @@ nav a::after {
 }
 
 nav a:hover {
-  color: var(--github-primary);  /* Use GitHub primary on hover */
+  color: var(--github-primary); /* Use GitHub primary on hover */
 }
 
 nav a:hover::after {
@@ -183,8 +186,8 @@ nav a:hover::after {
     padding: var(--spacing-medium);
     box-shadow: var(--box-shadow-default);
     text-align: center;
-    transition: all var(--transition-duration-normal);  /* Ensure transition is present */
-      border: 1px solid var(--github-border-color);
+    transition: all var(--transition-duration-normal); /* Ensure transition is present */
+    border: 1px solid var(--github-border-color);
   }
 
   nav.active {
@@ -200,7 +203,6 @@ nav a:hover::after {
     margin: var(--spacing-small) 0;
   }
 }
-
 
 /* ====== Main Content ====== */
 main {
