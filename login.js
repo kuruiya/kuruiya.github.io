@@ -9,6 +9,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         alert('Login failed');
       } else {
         alert('Login successful');
+        window.location.href = "index.html";
       }
     }).catch((error) => {
       alert('Login failed');
