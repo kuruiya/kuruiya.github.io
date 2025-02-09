@@ -13,5 +13,6 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
       }
     }).catch((error) => {
       alert('Login failed');
+      console.error('Error: ', error);
     });
 });
