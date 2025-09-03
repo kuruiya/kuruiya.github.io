@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kuruiya: The Collection</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="main-header">
+    <a href="index.html" class="header-btn" title="Back to Library">‹</a>
+    <h1 id="novel-title" title="Click to edit title"></h1>
+    <button id="settingsBtn" class="header-btn" title="Reader Settings">⚙️</button>
+  </header>
+
+  <div id="settingsPanel" class="settings-panel">
+    <div class="setting-group">
+      <label>Font Size</label>
+      <div class="button-group">
+        <button id="decreaseFontBtn">-</button>
+        <button id="increaseFontBtn">+</button>
+      </div>
+    </div>
+    <div class="setting-group">
+      <label>Font Style</label>
+      <div class="button-group">
+        <button id="fontStyleBtn">Serif</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="reader-container">
+    <div id="chapter" class="chapter"></div>
+    <div class="controls">
+      <button id="prevBtn" class="control-btn" title="Previous Chapter (←)">←</button>
+      <button id="nextBtn" class="control-btn" title="Next Chapter (→)">→</button>
+    </div>
+  </div>
+
+  <div id="editorModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="editorTitle">Edit Chapter</h2>
+        <button id="closeEditorModal" class="close-btn">&times;</button>
+      </div>
+      
+      <div id="pageCounter" class="page-counter"></div>
+
+      <div class="form-group">
+        <label for="chapterTitleInput">Title</label>
+        <input id="chapterTitleInput" type="text" placeholder="Enter chapter title">
+      </div>
+      
+      <div class="form-group">
+        <label for="editor">Content</label>
+        <textarea id="editor" rows="10" placeholder="Start writing... Separate paragraphs with a blank line."></textarea>
+        <div id="wordCounter" class="word-counter">0 words</div>
+      </div>
+
+      <div class="modal-footer">
+        <div class="footer-actions-left">
+           <input type="file" id="importFile" accept=".json" style="display: none;">
+           <button id="importBtn" class="btn btn-secondary">Import</button>
+           <button id="exportBtn" class="btn btn-secondary">Export</button>
+        </div>
+        <div class="footer-actions">
+          <button id="deleteBtn" class="btn btn-destructive">🗑️ Delete</button>
+          <button id="addBtn" class="btn btn-secondary">＋ Add New</button>
+          <button id="saveBtn" class="btn btn-primary">💾 Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="tocModal" class="modal">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h2>Table of Contents</h2>
+              <button id="closeTocModal" class="close-btn">&times;</button>
+          </div>
+          <ul id="tocList" class="toc-list">
+              </ul>
+      </div>
+  </div>
+
+  <script src="reader.js"></script>
+</body>
+</html>
